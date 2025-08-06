@@ -6,40 +6,38 @@ export interface StatisticItem {
 
 export const HOME_STATISTICS: StatisticItem[] = [
   {
-    value: 35000,
-    suffix: '+',
-    label: 'Trees Planted'
+    value: 10,
+    label: 'Specialized Departments'
   },
   {
-    value: 18500,
-    label: 'Tons of Waste Recycled'
+    value: 27,
+    label: 'LGAs Covered Statewide'
   },
   {
-    value: 27000,
-    label: 'Hectares of Land Protected'
+    value: 12,
+    label: 'Strategic Partners'
   },
   {
-    value: 1250,
-    label: 'Environmental Officers Deployed'
+    value: 10,
+    label: 'Active Projects'
   }
 ];
 
 export const PROJECTS_STATISTICS: StatisticItem[] = [
   {
-    value: 150,
-    suffix: '+',
-    label: 'Total Projects'
+    value: 10,
+    label: 'Key Projects'
   },
   {
-    value: 120,
-    label: 'Projects Completed'
-  },
-  {
-    value: 30,
-    label: 'Projects Ongoing'
+    value: 6,
+    label: 'Partner Agencies'
   },
   {
     value: 27,
-    label: 'LGAs Covered'
+    label: 'LGAs Served'
+  },
+  {
+    value: 10,
+    label: 'Strategic Goals'
   }
 ];
