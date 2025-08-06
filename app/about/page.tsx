@@ -253,6 +253,61 @@ export default function About() {
                 </div>
             </section>
 
+            {/* Team */}
+            <section className="py-12 sm:py-16 md:py-20 bg-white">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="text-center mb-12">
+                        <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl">Our Leadership Team</h2>
+                        <p className="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">
+                            Meet the dedicated leaders steering the Ministry of Environment and Sanitation towards a cleaner, greener Imo State.
+                        </p>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 max-w-5xl mx-auto">
+                        {/* Commissioner */}
+                        <div className="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100">
+                            <div className="h-64 bg-gray-100 overflow-hidden">
+                                <Image
+                                    src="/assets/no-image.png"
+                                    alt="Hon. Barr. Major Ejikeme Chuks Major Emenike - Commissioner for Environment and Sanitation"
+                                    width={400}
+                                    height={400}
+                                    className="w-full h-full object-cover"
+                                />
+                            </div>
+                            <div className="p-6">
+                                <h3 className="text-xl font-bold text-gray-900">Hon. Barr. Major Ejikeme Chuks Major Emenike</h3>
+                                <p className="text-green-700 font-medium mt-1">Commissioner for Environment and Sanitation</p>
+                                <p className="text-sm text-gray-500 mt-2">Sworn in: April 30, 2024</p>
+                                <p className="mt-4 text-gray-600">
+                                    A legal professional with public service experience, leading the state's environmental agenda with a commitment to policy rigor, stakeholder engagement, and effective implementation.
+                                </p>
+                            </div>
+                        </div>
+
+                        {/* Permanent Secretary */}
+                        <div className="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100">
+                            <div className="h-64 bg-gray-100 overflow-hidden">
+                                <Image
+                                    src="/assets/no-image.png"
+                                    alt="Pst. Chukwuma Iheanacho - Permanent Secretary"
+                                    width={400}
+                                    height={400}
+                                    className="w-full h-full object-cover"
+                                />
+                            </div>
+                            <div className="p-6">
+                                <h3 className="text-xl font-bold text-gray-900">Pst. Chukwuma Iheanacho</h3>
+                                <p className="text-green-700 font-medium mt-1">Permanent Secretary</p>
+                                <p className="mt-4 text-gray-600">
+                                    An experienced administrator providing strategic leadership and ensuring the effective implementation of the Ministry's policies and programs across all departments.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             {/* Our Structure Section */}
             <section className="py-12 sm:py-16 md:py-20 bg-gray-900 grid-bg text-white">
                 <div className="max-w-7xl mx-auto px-4 space-y-10 sm:px-6 lg:px-20">
