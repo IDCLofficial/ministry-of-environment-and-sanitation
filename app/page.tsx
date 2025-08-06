@@ -29,7 +29,7 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 md:gap-12 items-center">
             <AnimatedEntrance {...ANIMATION_PRESETS.IMAGE_FADE_UP} className="order-2 lg:order-1">
               <Image
-                src="/assets/environment.png"
+                src="/assets/no-image.png"
                 alt="Environmental landscape with clean surroundings"
                 width={600}
                 height={400}
@@ -91,7 +91,7 @@ export default function Home() {
             <div className="flex-1 order-1 lg:order-2">
               <AnimatedEntrance {...ANIMATION_PRESETS.IMAGE_FADE_UP}>
                 <Image
-                  src="/assets/commissioner-environment.png"
+                  src="/assets/no-image.png"
                   alt="Hon. Barr. Major Ejikeme Chuks Major Emenike - Commissioner for Environment and Sanitation"
                   width={500}
                   height={600}
@@ -188,7 +188,7 @@ export default function Home() {
                 <div className="text-center hover:transform hover:scale-110 transition-all duration-300 cursor-pointer">
                   <div className="bg-white p-2 rounded-lg shadow-sm">
                     <Image 
-                      src={`/assets/eco-partner-${item}.png`}
+                      src="/assets/no-image.png"
                       alt={`Environmental Partner ${item}`}
                       width={100}
                       height={60}

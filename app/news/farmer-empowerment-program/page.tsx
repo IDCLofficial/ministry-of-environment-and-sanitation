@@ -38,7 +38,7 @@ export default function FarmerEmpowermentProgram() {
                 <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-20">
                     <div className="w-full h-80 md:h-96 relative rounded-lg overflow-hidden">
                         <Image
-                            src="/assets/factory.png"
+                            src="/assets/no-image.png"
                             alt="Industrial facility"
                             fill
                             className="object-cover"
@@ -74,7 +74,7 @@ export default function FarmerEmpowermentProgram() {
                         {/* Second Image */}
                         <div className="w-full h-64 md:h-80 relative rounded-lg overflow-hidden mb-8">
                             <Image
-                                src="/assets/factory-2.png"
+                                src="/assets/no-image.png"
                                 alt="Industrial facility interior"
                                 fill
                                 className="object-cover"

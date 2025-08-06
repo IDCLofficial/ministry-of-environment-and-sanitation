@@ -16,7 +16,7 @@ export default function About() {
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16">
                         <AnimatedEntrance {...ANIMATION_PRESETS.IMAGE_FADE_UP} className="order-2 lg:order-1">
                             <Image
-                                src="/assets/environment.png"
+                                src="/assets/no-image.png"
                                 alt="Environmental landscape showing clean environment and sanitation efforts"
                                 width={600}
                                 height={400}
@@ -242,7 +242,7 @@ export default function About() {
                         </div>
                         <div className="order-1 lg:order-2">
                             <Image
-                                src="/assets/commissioner-environment.png"
+                                src="/assets/no-image.png"
                                 alt="Hon. Dr. Elizabeth Ndubueze - Honorable Commissioner"
                                 width={500}
                                 height={600}
@@ -270,7 +270,7 @@ export default function About() {
                         </div>
                         <div>
                             <Image
-                                src="/assets/environment-building.png"
+                                src="/assets/no-image.png"
                                 alt="Ministry of Environment and Sanitation Building"
                                 width={600}
                                 height={400}

@@ -5,6 +5,7 @@ import { PROJECTS_STATISTICS } from "../../utils/constants/statistics";
 import { HERO_CONFIGS } from "../../utils/constants/heroSections";
 import { ANIMATION_PRESETS, STAGGER_DELAYS } from "../../utils/constants/animations";
 import { FaRecycle, FaWater, FaTree, FaBookOpenReader, FaBullhorn, FaClipboardCheck, FaTrash, FaSchool, FaUsers } from "react-icons/fa6";
+import Image from "next/image";
 
 // Environmental project icons mapping
 const PROJECT_ICONS = {
@@ -18,48 +19,6 @@ const PROJECT_ICONS = {
     8: FaTrash,      // Hazardous Waste
     9: FaSchool,        // Green School
     10: FaUsers,        // Community Clean-up
-};
-
-// Environmental project categories
-const PROJECT_CATEGORIES = {
-    1: "Waste Management",
-    2: "Infrastructure",
-    3: "Conservation",
-    4: "Sanitation",
-    5: "Policy & Research",
-    6: "Public Outreach",
-    7: "Regulation",
-    8: "Waste Management",
-    9: "Education",
-    10: "Community Engagement"
-};
-
-// Environmental project statuses
-const PROJECT_STATUSES = {
-    1: "In Progress",
-    2: "In Progress",
-    3: "Ongoing",
-    4: "Active",
-    5: "Completed",
-    6: "Ongoing",
-    7: "Active",
-    8: "In Progress",
-    9: "Active",
-    10: "Ongoing"
-};
-
-// Project partners
-const PROJECT_PARTNERS = {
-    1: "ENTRACO, Local Governments",
-    2: "World Bank, Federal Ministry of Environment",
-    3: "NGOs, Community Groups",
-    4: "ENTRACO, LGAs",
-    5: "Ford Foundation, NGOs",
-    6: "Media Houses, Community Groups",
-    7: "NESREA, State Environmental Protection Agency",
-    8: "NNRA, Federal Ministry of Environment",
-    9: "Ministry of Education, Schools",
-    10: "Community Groups, Youth Organizations"
 };
 
 // Environmental projects
@@ -191,12 +150,14 @@ export default function Projects() {
                                     delay={STAGGER_DELAYS.MEDIUM[index % STAGGER_DELAYS.MEDIUM.length]}
                                 >
                                     <div className="bg-white border border-gray-200 h-full rounded-lg overflow-hidden hover:shadow-lg transition-all duration-300">
-                                        <div className="h-48 bg-green-50 flex items-center justify-center">
-                                            {IconComponent && (
-                                                <div className="w-24 h-24 rounded-full bg-green-100 flex items-center justify-center">
-                                                    <IconComponent size="3em" color="#16a34a" />
-                                                </div>
-                                            )}
+                                        <div className="h-48 bg-green-50 flex items-center justify-center overflow-hidden">
+                                            <Image
+                                                src={'/assets/no-image.png'}
+                                                alt={project.title}
+                                                width={400}
+                                                height={200}
+                                                className="object-cover"
+                                            />
                                         </div>
                                         <div className="p-6">
                                             <h3 className="text-lg font-bold text-gray-900 mb-4">
