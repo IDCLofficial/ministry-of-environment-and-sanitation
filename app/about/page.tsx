@@ -280,7 +280,7 @@ export default function About() {
                                 <p className="text-green-700 font-medium mt-1">Commissioner for Environment and Sanitation</p>
                                 <p className="text-sm text-gray-500 mt-2">Sworn in: April 30, 2024</p>
                                 <p className="mt-4 text-gray-600">
-                                    A legal professional with public service experience, leading the state's environmental agenda with a commitment to policy rigor, stakeholder engagement, and effective implementation.
+                                    A legal professional with public service experience, leading the state&apos;s environmental agenda with a commitment to policy rigor, stakeholder engagement, and effective implementation.
                                 </p>
                             </div>
                         </div>
@@ -300,7 +300,7 @@ export default function About() {
                                 <h3 className="text-xl font-bold text-gray-900">Pst. Chukwuma Iheanacho</h3>
                                 <p className="text-green-700 font-medium mt-1">Permanent Secretary</p>
                                 <p className="mt-4 text-gray-600">
-                                    An experienced administrator providing strategic leadership and ensuring the effective implementation of the Ministry's policies and programs across all departments.
+                                    An experienced administrator providing strategic leadership and ensuring the effective implementation of the Ministry&apos;s policies and programs across all departments.
                                 </p>
                             </div>
                         </div>
