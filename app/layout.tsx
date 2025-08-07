@@ -4,6 +4,7 @@ import "./globals.css";
 import Navigation from "./components/navigation";
 import Footer from "./components/Footer";
 import NextTopLoader from "nextjs-toploader";
+import { SITE_METADATA } from "@/utils/constants/metadata";
 
 const poppinsSans = Poppins({
   variable: "--font-poppins-sans",
@@ -17,10 +18,7 @@ const poppinsMono = Poppins({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
 });
 
-export const metadata: Metadata = {
-  title: "Government Ministries | Official Website",
-  description: "Official website of the Government Ministries - Your gateway to government services, departments, projects, and information.",
-};
+export const metadata: Metadata = SITE_METADATA;
 
 export default function RootLayout({
   children,
