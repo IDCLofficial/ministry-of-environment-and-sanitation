@@ -1,10 +1,45 @@
+"use client";
 import Image from 'next/image'
 import Link from 'next/link'
-import React from 'react'
+import React, { useCallback, useState, FormEvent, ChangeEvent } from 'react'
+import toast from 'react-hot-toast'
 import AnimatedEntrance from '../../components/AnimatedEntrance'
 import { ANIMATION_PRESETS, STAGGER_DELAYS } from '../../utils/constants/animations'
 
 export default function Footer() {
+    const [email, setEmail] = useState("");
+    const [emailError, setEmailError] = useState<string | null>(null);
+    const [isSubmitting, setIsSubmitting] = useState(false);
+
+    const handleEmailChange = useCallback((e: ChangeEvent<HTMLInputElement>) => {
+        setEmail(e.target.value);
+        if (emailError) setEmailError(null);
+    }, [emailError]);
+
+    const handleSubscribe = useCallback(async (e: FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        const isValid = /\S+@\S+\.\S+/.test(email.trim());
+        if (!email.trim()) {
+            setEmailError("Email is required");
+            toast.error("Please enter your email.");
+            return;
+        }
+        if (!isValid) {
+            setEmailError("Enter a valid email");
+            toast.error("Enter a valid email.");
+            return;
+        }
+        setIsSubmitting(true);
+        try {
+            await new Promise((r) => setTimeout(r, 900));
+            toast.success("Subscribed successfully!");
+            setEmail("");
+            setEmailError(null);
+        } finally {
+            setIsSubmitting(false);
+        }
+    }, [email]);
+
     return (
         <>
 
@@ -104,16 +139,28 @@ export default function Footer() {
                         <AnimatedEntrance {...ANIMATION_PRESETS.CARD_FADE_UP} delay={STAGGER_DELAYS.MEDIUM[3]}>
                             <div>
                                 <h4 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4 md:mb-6 text-white">Signup to Our Newsletter</h4>
-                                <div className="space-y-3 sm:space-y-4">
+                                <form onSubmit={handleSubscribe} noValidate className="space-y-3 sm:space-y-4">
                                     <input
                                         type="email"
+                                        name="newsletter-email"
+                                        aria-invalid={Boolean(emailError)}
+                                        aria-describedby={emailError ? 'newsletter-email-error' : undefined}
+                                        value={email}
+                                        onChange={handleEmailChange}
                                         placeholder="Myemail@gmail.com"
-                                        className="w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500 focus:bg-white/15 transition-all duration-300 text-sm sm:text-base"
+                                        className={`w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg bg-white/10 border text-white placeholder-gray-300 focus:outline-none focus:ring-2 transition-all duration-300 text-sm sm:text-base ${emailError ? 'border-red-500 focus:ring-red-500 focus:border-red-500' : 'border-white/20 focus:ring-green-500 focus:border-green-500 focus:bg-white/15'}`}
                                     />
-                                    <button className="cursor-pointer w-full bg-green-500 hover:bg-green-600 hover:scale-105 active:scale-95 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg text-sm sm:text-base font-semibold transition-all duration-300 shadow-lg hover:shadow-xl">
-                                        Subscribe
+                                    {emailError && (
+                                        <p id="newsletter-email-error" className="text-red-300 text-xs sm:text-sm">{emailError}</p>
+                                    )}
+                                    <button
+                                        type="submit"
+                                        disabled={isSubmitting}
+                                        className={`cursor-pointer w-full bg-green-500 hover:bg-green-600 hover:scale-105 active:scale-95 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg text-sm sm:text-base font-semibold transition-all duration-300 shadow-lg hover:shadow-xl ${isSubmitting ? 'opacity-80 cursor-not-allowed' : ''}`}
+                                    >
+                                        {isSubmitting ? 'Subscribing...' : 'Subscribe'}
                                     </button>
-                                </div>
+                                </form>
                                 <div className="mt-4 sm:mt-6 space-y-1 sm:space-y-2 text-xs sm:text-sm text-gray-300">
                                     <a href="tel:" className="hover:text-green-300 transition-colors duration-300 cursor-pointer">[Official phone number to be provided]</a>
                                     <a href="mailto:commissioner.ind.solid.min@gmail.com" className="hover:text-green-300 transition-colors duration-300 cursor-pointer">commissioner.ind.solid.min@gmail.com</a>

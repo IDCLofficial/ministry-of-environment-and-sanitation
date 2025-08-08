@@ -5,6 +5,7 @@ import Navigation from "./components/navigation";
 import Footer from "./components/Footer";
 import NextTopLoader from "nextjs-toploader";
 import { SITE_METADATA } from "@/utils/constants/metadata";
+import ToasterProvider from "./components/ToasterProvider";
 
 const poppinsSans = Poppins({
   variable: "--font-poppins-sans",
@@ -41,6 +42,7 @@ export default function RootLayout({
           speed={200}
           shadow="0 0 10px #4CAF50,0 0 5px #4CAF50"
         />
+        <ToasterProvider />
         <Navigation />
         <div className="">
           {children}

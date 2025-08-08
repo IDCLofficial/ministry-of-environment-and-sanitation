@@ -1,7 +1,81 @@
+"use client";
+import { useState, useCallback, FormEvent, ChangeEvent } from "react";
+import toast from "react-hot-toast";
 import AnimatedEntrance from "../../components/AnimatedEntrance";
 import { ANIMATION_PRESETS, STAGGER_DELAYS } from "../../utils/constants/animations";
 
 export default function Contact() {
+    const [formValues, setFormValues] = useState({
+        name: "",
+        company: "",
+        phone: "",
+        email: "",
+        subject: "",
+        message: "",
+    });
+
+    const [errors, setErrors] = useState<
+        Partial<Record<"name" | "company" | "phone" | "email" | "subject" | "message", string>>
+    >({});
+
+    const [isSubmitting, setIsSubmitting] = useState(false);
+
+    const handleChange = useCallback(
+        (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+            const { name, value } = e.target;
+            setFormValues((prev) => ({ ...prev, [name]: value }));
+            if (errors[name as keyof typeof errors]) {
+                setErrors((prev) => {
+                    const next = { ...prev };
+                    delete next[name as keyof typeof next];
+                    return next;
+                });
+            }
+        },
+        [errors]
+    );
+
+    const validate = useCallback((values: typeof formValues) => {
+        const nextErrors: Partial<Record<keyof typeof formValues, string>> = {};
+        if (!values.name.trim()) nextErrors.name = "Name is required";
+        if (!values.email.trim()) nextErrors.email = "Email is required";
+        else if (!/^\S+@\S+\.\S+$/.test(values.email)) nextErrors.email = "Enter a valid email";
+        if (values.phone && !/^[\d\s()+-]{7,20}$/.test(values.phone)) nextErrors.phone = "Enter a valid phone";
+        if (!values.subject.trim()) nextErrors.subject = "Subject is required";
+        if (!values.message.trim() || values.message.trim().length < 10)
+            nextErrors.message = "Message should be at least 10 characters";
+        return nextErrors;
+    }, []);
+
+    const handleSubmit = useCallback(
+        async (e: FormEvent<HTMLFormElement>) => {
+            e.preventDefault();
+            const validationErrors = validate(formValues);
+            if (Object.keys(validationErrors).length > 0) {
+                setErrors(validationErrors);
+                toast.error("Please fix the highlighted fields.");
+                return;
+            }
+            setIsSubmitting(true);
+            try {
+                await new Promise((resolve) => setTimeout(resolve, 1200));
+                toast.success("Message sent successfully!");
+                setFormValues({
+                    name: "",
+                    company: "",
+                    phone: "",
+                    email: "",
+                    subject: "",
+                    message: "",
+                });
+                setErrors({});
+            } finally {
+                setIsSubmitting(false);
+            }
+        },
+        [formValues, validate]
+    );
+
     return (
         <div className="min-h-screen bg-white">
             {/* Green Header Bar */}
@@ -106,7 +180,7 @@ export default function Contact() {
                         {/* Right Column - Contact Form */}
                         <AnimatedEntrance {...ANIMATION_PRESETS.CARD_FADE_UP} delay={400}>
                             <div className="bg-white rounded-lg p-8 shadow-sm hover:shadow-lg transition-shadow duration-300">
-                            <form className="space-y-6">
+                            <form onSubmit={handleSubmit} noValidate className="space-y-6">
                                 <h3 className="text-2xl font-bold text-gray-900 mb-4">SEND US A MESSAGE</h3>
                                 <div>
                                     <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
@@ -116,9 +190,20 @@ export default function Contact() {
                                         type="text"
                                         id="name"
                                         name="name"
-                                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                                        value={formValues.name}
+                                        onChange={handleChange}
+                                        aria-invalid={Boolean(errors.name)}
+                                        aria-describedby={errors.name ? "name-error" : undefined}
+                                        className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:border-transparent ${
+                                            errors.name
+                                                ? "border-red-500 focus:ring-red-500"
+                                                : "border-gray-300 focus:ring-green-500"
+                                        }`}
                                         placeholder="Your name"
                                     />
+                                    {errors.name && (
+                                        <p id="name-error" className="mt-2 text-sm text-red-600">{errors.name}</p>
+                                    )}
                                 </div>
                                 <div>
                                     <label htmlFor="company" className="block text-sm font-medium text-gray-700 mb-2">
@@ -128,6 +213,8 @@ export default function Contact() {
                                         type="text"
                                         id="company"
                                         name="company"
+                                        value={formValues.company}
+                                        onChange={handleChange}
                                         className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
                                         placeholder="Your company"
                                     />
@@ -140,9 +227,20 @@ export default function Contact() {
                                         type="tel"
                                         id="phone"
                                         name="phone"
-                                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                                        value={formValues.phone}
+                                        onChange={handleChange}
+                                        aria-invalid={Boolean(errors.phone)}
+                                        aria-describedby={errors.phone ? "phone-error" : undefined}
+                                        className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:border-transparent ${
+                                            errors.phone
+                                                ? "border-red-500 focus:ring-red-500"
+                                                : "border-gray-300 focus:ring-green-500"
+                                        }`}
                                         placeholder="Your phone number"
                                     />
+                                    {errors.phone && (
+                                        <p id="phone-error" className="mt-2 text-sm text-red-600">{errors.phone}</p>
+                                    )}
                                 </div>
                                 <div>
                                     <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
@@ -152,9 +250,20 @@ export default function Contact() {
                                         type="email"
                                         id="email"
                                         name="email"
-                                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                                        value={formValues.email}
+                                        onChange={handleChange}
+                                        aria-invalid={Boolean(errors.email)}
+                                        aria-describedby={errors.email ? "email-error" : undefined}
+                                        className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:border-transparent ${
+                                            errors.email
+                                                ? "border-red-500 focus:ring-red-500"
+                                                : "border-gray-300 focus:ring-green-500"
+                                        }`}
                                         placeholder="Your email address"
                                     />
+                                    {errors.email && (
+                                        <p id="email-error" className="mt-2 text-sm text-red-600">{errors.email}</p>
+                                    )}
                                 </div>
                                 <div>
                                     <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-2">
@@ -164,9 +273,20 @@ export default function Contact() {
                                         type="text"
                                         id="subject"
                                         name="subject"
-                                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                                        value={formValues.subject}
+                                        onChange={handleChange}
+                                        aria-invalid={Boolean(errors.subject)}
+                                        aria-describedby={errors.subject ? "subject-error" : undefined}
+                                        className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:border-transparent ${
+                                            errors.subject
+                                                ? "border-red-500 focus:ring-red-500"
+                                                : "border-gray-300 focus:ring-green-500"
+                                        }`}
                                         placeholder="Message subject"
                                     />
+                                    {errors.subject && (
+                                        <p id="subject-error" className="mt-2 text-sm text-red-600">{errors.subject}</p>
+                                    )}
                                 </div>
                                 <div>
                                     <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
@@ -176,15 +296,29 @@ export default function Contact() {
                                         id="message"
                                         name="message"
                                         rows={6}
-                                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent resize-none"
+                                        value={formValues.message}
+                                        onChange={handleChange}
+                                        aria-invalid={Boolean(errors.message)}
+                                        aria-describedby={errors.message ? "message-error" : undefined}
+                                        className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:border-transparent resize-none ${
+                                            errors.message
+                                                ? "border-red-500 focus:ring-red-500"
+                                                : "border-gray-300 focus:ring-green-500"
+                                        }`}
                                         placeholder="Your message or complaint..."
                                     ></textarea>
+                                    {errors.message && (
+                                        <p id="message-error" className="mt-2 text-sm text-red-600">{errors.message}</p>
+                                    )}
                                 </div>
                                 <button
                                     type="submit"
-                                    className="w-full bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-colors hover:transform hover:scale-105 duration-300"
+                                    disabled={isSubmitting}
+                                    className={`w-full bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-colors hover:transform hover:scale-105 duration-300 ${
+                                        isSubmitting ? "opacity-80 cursor-not-allowed" : ""
+                                    }`}
                                 >
-                                    Send message
+                                    {isSubmitting ? "Sending..." : "Send message"}
                                 </button>
                             </form>
                             </div>
