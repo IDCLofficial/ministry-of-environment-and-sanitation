@@ -219,22 +219,21 @@ export default function About() {
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center">
                         <div className="order-2 lg:order-1">
                             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 sm:mb-6">
-                                Hon. Dr. Elizabeth Ndubueze
+                                Hon. Barr. Major Ejikeme Chuks Major Emenike
                             </h2>
                             <p className="text-lg sm:text-xl text-green-600 font-semibold mb-4 sm:mb-6">
-                                Honorable Commissioner
+                                Honorable Commissioner for Environment and Sanitation
                             </p>
                             <p className="text-sm sm:text-base md:text-lg text-gray-700 leading-relaxed mb-4 sm:mb-6">
-                                Hon. Dr. Elizabeth Ndubueze brings over fifteen years of experience in environmental management,
-                                policy development, and sustainable urban planning. With a Ph.D. in Environmental Sciences
-                                and extensive experience in both public and private sectors, she leads the ministry&apos;s
-                                vision of transforming Imo State into a clean, green, and environmentally sustainable region.
+                                Sworn in on April 30, 2024, by Governor Hope Uzodimma, Hon. Barr. Major Ejikeme Chuks Major Emenike
+                                is a legal professional with extensive public service experience. He leads the state's environmental
+                                agenda with a commitment to policy rigor, stakeholder engagement, and effective implementation.
                             </p>
                             <p className="text-sm sm:text-base md:text-lg text-gray-700 leading-relaxed mb-6 sm:mb-8">
-                                Under her leadership, the ministry has launched several groundbreaking initiatives
-                                including the Imo Clean Environment Initiative, the Green Imo Project, the Waste-to-Wealth Program,
-                                and the Climate Resilience Action Plan, which have collectively improved environmental conditions
-                                for over 2 million residents across the state.
+                                Under his leadership, the ministry has partnered with key organizations including the Nigerian Nuclear
+                                Regulatory Authority, Space for Change, and the Ford Foundation to drive environmental initiatives.
+                                His tenure has seen significant progress in waste management, climate action, and community engagement
+                                programs across Imo State.
                             </p>
                             <button className="bg-green-500 hover:bg-green-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg text-sm sm:text-base font-semibold transition-colors">
                                 Read Full Bio
@@ -243,7 +242,7 @@ export default function About() {
                         <div className="order-1 lg:order-2">
                             <Image
                                 src="/assets/no-image.png"
-                                alt="Hon. Dr. Elizabeth Ndubueze - Honorable Commissioner"
+                                alt="Hon. Barr. Major Ejikeme Chuks Major Emenike - Honorable Commissioner for Environment and Sanitation"
                                 width={500}
                                 height={600}
                                 className="rounded-lg shadow-lg w-full h-auto"
@@ -279,9 +278,6 @@ export default function About() {
                                 <h3 className="text-xl font-bold text-gray-900">Hon. Barr. Major Ejikeme Chuks Major Emenike</h3>
                                 <p className="text-green-700 font-medium mt-1">Commissioner for Environment and Sanitation</p>
                                 <p className="text-sm text-gray-500 mt-2">Sworn in: April 30, 2024</p>
-                                <p className="mt-4 text-gray-600">
-                                    A legal professional with public service experience, leading the state&apos;s environmental agenda with a commitment to policy rigor, stakeholder engagement, and effective implementation.
-                                </p>
                             </div>
                         </div>
 
@@ -299,9 +295,6 @@ export default function About() {
                             <div className="p-6">
                                 <h3 className="text-xl font-bold text-gray-900">Pst. Chukwuma Iheanacho</h3>
                                 <p className="text-green-700 font-medium mt-1">Permanent Secretary</p>
-                                <p className="mt-4 text-gray-600">
-                                    An experienced administrator providing strategic leadership and ensuring the effective implementation of the Ministry&apos;s policies and programs across all departments.
-                                </p>
                             </div>
                         </div>
                     </div>
