@@ -13,6 +13,7 @@ import { getRelativeTime } from "@/utils";
 const NewsContent: React.FC<{category: string}> = ({category}) => {
     const [news, setNews] = useState<DisplayNews[]>([]);
     const [categories, setCategories] = useState<{name: string}[]>([]);
+    const [isLoading, setIsLoading] = useState<boolean>(true);
 
     // Transform NewsPost to DisplayNews format
     const transformNewsData = (newsItems: NewsPost[]): DisplayNews[] => {
@@ -67,16 +68,27 @@ const NewsContent: React.FC<{category: string}> = ({category}) => {
 
     // Main data fetching function
     const fetchAllData = async () => {
-        await Promise.all([
-            fetchNewsData(),
-            fetchCategoriesData(),
-            fetchMediaData()
-        ]);
+        setIsLoading(true);
+        try {
+            await Promise.all([
+                fetchNewsData(),
+                fetchCategoriesData(),
+                fetchMediaData()
+            ]);
+        } catch (error) {
+            console.error('Error fetching data:', error);
+        } finally {
+            setIsLoading(false);
+        }
     };
 
     useEffect(() => {
         fetchAllData();
     }, []);
+
+    if (isLoading) {
+        return <LoadingState />;
+    }
 
     if (news.length === 0) {
         return <EmptyState />;
@@ -165,6 +177,49 @@ const NewsContent: React.FC<{category: string}> = ({category}) => {
                                 </div>
                             </Link>
                         </AnimatedEntrance>
+                    ))}
+                </div>
+            </div>
+        </div>
+    );
+};
+
+const LoadingState: React.FC = () => {
+    return (
+        <div className="flex flex-col lg:flex-row gap-8">
+            {/* Sidebar Loading */}
+            <div className="lg:w-1/4">
+                <div className="bg-white rounded-lg p-6 shadow-sm">
+                    <div className="animate-pulse">
+                        <div className="h-10 bg-gray-200 rounded mb-6"></div>
+                        <div className="space-y-3">
+                            <div className="h-8 bg-gray-200 rounded"></div>
+                            <div className="h-8 bg-gray-200 rounded"></div>
+                            <div className="h-8 bg-gray-200 rounded"></div>
+                            <div className="h-8 bg-gray-200 rounded"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {/* Main Content Loading */}
+            <div className="lg:w-3/4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    {[...Array(6)].map((_, index) => (
+                        <div key={index} className="bg-white rounded-lg overflow-hidden shadow-sm">
+                            <div className="animate-pulse">
+                                <div className="h-48 bg-gray-200"></div>
+                                <div className="p-6">
+                                    <div className="h-6 bg-gray-200 rounded mb-3"></div>
+                                    <div className="h-4 bg-gray-200 rounded w-20 mb-3"></div>
+                                    <div className="space-y-2 mb-4">
+                                        <div className="h-4 bg-gray-200 rounded"></div>
+                                        <div className="h-4 bg-gray-200 rounded w-3/4"></div>
+                                    </div>
+                                    <div className="h-4 bg-gray-200 rounded w-24"></div>
+                                </div>
+                            </div>
+                        </div>
                     ))}
                 </div>
             </div>
