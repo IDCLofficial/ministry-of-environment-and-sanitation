@@ -104,8 +104,48 @@ export default function About() {
                 </div>
             </section>
 
-            {/* Core Responsibilities Section */}
+
+            {/* Commissioner Profile Section */}
             <section className="py-12 sm:py-16 md:py-20 bg-white">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-20">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center">
+                        <div className="order-2 lg:order-1">
+                            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 sm:mb-6">
+                                Hon. Barr. Major Ejikeme Chuks Major Emenike
+                            </h2>
+                            <p className="text-lg sm:text-xl text-green-600 font-semibold mb-4 sm:mb-6">
+                                Honorable Commissioner for Environment and Sanitation
+                            </p>
+                            <p className="text-sm sm:text-base md:text-lg text-gray-700 leading-relaxed mb-4 sm:mb-6">
+                                Sworn in on April 30, 2024, by Governor Hope Uzodimma, Hon. Barr. Major Ejikeme Chuks Major Emenike
+                                is a legal professional with extensive public service experience. He leads the state's environmental
+                                agenda with a commitment to policy rigor, stakeholder engagement, and effective implementation.
+                            </p>
+                            <p className="text-sm sm:text-base md:text-lg text-gray-700 leading-relaxed mb-6 sm:mb-8">
+                                Under his leadership, the ministry has partnered with key organizations including the Nigerian Nuclear
+                                Regulatory Authority, Space for Change, and the Ford Foundation to drive environmental initiatives.
+                                His tenure has seen significant progress in waste management, climate action, and community engagement
+                                programs across Imo State.
+                            </p>
+                            <button className="bg-green-500 hover:bg-green-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg text-sm sm:text-base font-semibold transition-colors">
+                                Read Full Bio
+                            </button>
+                        </div>
+                        <div className="order-1 lg:order-2">
+                            <Image
+                                src="/assets/no-image.png"
+                                alt="Hon. Barr. Major Ejikeme Chuks Major Emenike - Honorable Commissioner for Environment and Sanitation"
+                                width={500}
+                                height={600}
+                                className="rounded-lg shadow-lg w-full h-auto"
+                            />
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* Core Responsibilities Section */}
+            <section className="py-12 sm:py-16 md:py-20 bg-gray-50">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-20">
                     <div className="text-center mb-8 sm:mb-12 md:mb-16">
                         <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 sm:mb-6">
@@ -213,41 +253,42 @@ export default function About() {
                 </div>
             </section>
 
-            {/* Commissioner Profile Section */}
-            <section className="py-12 sm:py-16 md:py-20 bg-gray-50">
+            {/* Strategic Goals Section */}
+            <section className="py-16 bg-gray-50">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-20">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center">
-                        <div className="order-2 lg:order-1">
-                            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 sm:mb-6">
-                                Hon. Barr. Major Ejikeme Chuks Major Emenike
-                            </h2>
-                            <p className="text-lg sm:text-xl text-green-600 font-semibold mb-4 sm:mb-6">
-                                Honorable Commissioner for Environment and Sanitation
-                            </p>
-                            <p className="text-sm sm:text-base md:text-lg text-gray-700 leading-relaxed mb-4 sm:mb-6">
-                                Sworn in on April 30, 2024, by Governor Hope Uzodimma, Hon. Barr. Major Ejikeme Chuks Major Emenike
-                                is a legal professional with extensive public service experience. He leads the state's environmental
-                                agenda with a commitment to policy rigor, stakeholder engagement, and effective implementation.
-                            </p>
-                            <p className="text-sm sm:text-base md:text-lg text-gray-700 leading-relaxed mb-6 sm:mb-8">
-                                Under his leadership, the ministry has partnered with key organizations including the Nigerian Nuclear
-                                Regulatory Authority, Space for Change, and the Ford Foundation to drive environmental initiatives.
-                                His tenure has seen significant progress in waste management, climate action, and community engagement
-                                programs across Imo State.
-                            </p>
-                            <button className="bg-green-500 hover:bg-green-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg text-sm sm:text-base font-semibold transition-colors">
-                                Read Full Bio
-                            </button>
-                        </div>
-                        <div className="order-1 lg:order-2">
-                            <Image
-                                src="/assets/no-image.png"
-                                alt="Hon. Barr. Major Ejikeme Chuks Major Emenike - Honorable Commissioner for Environment and Sanitation"
-                                width={500}
-                                height={600}
-                                className="rounded-lg shadow-lg w-full h-auto"
-                            />
-                        </div>
+                    <div className="text-center mb-10">
+                        <h2 className="text-3xl font-bold text-gray-900 mb-4">Our Strategic Goals</h2>
+                        <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+                            The Ministry is committed to these key strategic objectives to ensure sustainable environmental management across Imo State.
+                        </p>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        {[
+                            "Promote sustainable environmental management across all sectors of the state.",
+                            "Ensure effective waste management systems in urban and rural communities.",
+                            "Combat erosion, flooding, and other ecological threats through infrastructure and natural solutions.",
+                            "Mainstream climate change adaptation and mitigation into state development planning.",
+                            "Enhance environmental awareness, education, and community participation.",
+                            "Strengthen institutional capacity for environmental monitoring and policy enforcement.",
+                            "Expand afforestation and biodiversity conservation initiatives.",
+                            "Improve environmental health and sanitation standards in public spaces.",
+                            "Build strategic partnerships with local, national, and international stakeholders.",
+                            "Drive innovation in environmental technology, data, and service delivery."
+                        ].map((goal, index) => (
+                            <AnimatedEntrance
+                                key={index}
+                                {...ANIMATION_PRESETS.CARD_FADE_UP}
+                                delay={0.1 * index}
+                            >
+                                <div className="flex items-start p-4 bg-white rounded-lg shadow-sm">
+                                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-green-100 flex items-center justify-center mr-4">
+                                        <span className="text-green-600 font-semibold">{index + 1}</span>
+                                    </div>
+                                    <p className="text-gray-700">{goal}</p>
+                                </div>
+                            </AnimatedEntrance>
+                        ))}
                     </div>
                 </div>
             </section>
