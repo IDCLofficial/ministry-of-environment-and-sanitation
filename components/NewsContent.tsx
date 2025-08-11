@@ -1,15 +1,83 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import AnimatedEntrance from "./AnimatedEntrance";
 import { ANIMATION_PRESETS, STAGGER_DELAYS } from "../utils/constants/animations";
 import { FaNewspaper } from "react-icons/fa6";
-import MOCK_NEWS from "@/utils/constants/mock-news";
+import { useEffect, useState } from "react";
+import { contentfulService } from "@/utils/contentful";
+import { Category, DisplayNews, NewsPost } from "@/utils/contentful/types";
+import { getRelativeTime } from "@/utils";
 
-interface NewsContentProps {
-    news?: typeof MOCK_NEWS;
-}
+const NewsContent: React.FC<{category: string}> = ({category}) => {
+    const [news, setNews] = useState<DisplayNews[]>([]);
+    const [categories, setCategories] = useState<{name: string}[]>([]);
 
-const NewsContent: React.FC<NewsContentProps> = ({ news = [] }) => {
+    // Transform NewsPost to DisplayNews format
+    const transformNewsData = (newsItems: NewsPost[]): DisplayNews[] => {
+        return newsItems.map((item: NewsPost) => ({
+            id: item.sys.id,
+            title: item.fields.title,
+            category: item.fields.ministry?.fields.ministryName || "",
+            excerpt: item.fields.content.content[0].content[0].value,
+            image: (item.fields.featuredImage?.fields.file.url) || "",
+            postedDays: item.sys.createdAt,
+        }));
+    };
+
+    // Transform Category data to simplified format
+    const transformCategoryData = (categories: Category[]) => {
+        return categories.map((item: Category) => ({
+            name: item.fields.category_name,
+        }));
+    };
+
+    // Fetch news data from Contentful
+    const fetchNewsData = async () => {
+        try {
+            const newsData = await contentfulService.getBlogsByMinistry("1CbXE0xisRTATe9srPctj2");
+            const transformedNews = transformNewsData(newsData);
+            setNews(transformedNews);
+        } catch (error) {
+            console.error('Error fetching news data:', error);
+        }
+    };
+
+    // Fetch categories data from Contentful
+    const fetchCategoriesData = async () => {
+        try {
+            const categoriesData = await contentfulService.getCategories();
+            const transformedCategories = transformCategoryData(categoriesData);
+            setCategories(transformedCategories);
+        } catch (error) {
+            console.error('Error fetching categories data:', error);
+        }
+    };
+
+    // Fetch media data (for debugging/future use)
+    const fetchMediaData = async () => {
+        try {
+            const mediaData = await contentfulService.getMediaByMinistryId("1CbXE0xisRTATe9srPctj2");
+            console.log({mediaData});
+        } catch (error) {
+            console.error('Error fetching media data:', error);
+        }
+    };
+
+    // Main data fetching function
+    const fetchAllData = async () => {
+        await Promise.all([
+            fetchNewsData(),
+            fetchCategoriesData(),
+            fetchMediaData()
+        ]);
+    };
+
+    useEffect(() => {
+        fetchAllData();
+    }, []);
+
     if (news.length === 0) {
         return <EmptyState />;
     }
@@ -34,28 +102,28 @@ const NewsContent: React.FC<NewsContentProps> = ({ news = [] }) => {
                         </div>
 
                         <div>
-                            <h3 className="text-sm font-semibold text-gray-900 uppercase tracking-wide mb-4">CATEGORIES</h3>
+                            <h3 className="text-sm font-semibold text-gray-900 uppercase tracking-wide mb-4">CATEGORIES {category}</h3>
                             <ul className="space-y-2">
                                 <li>
-                                    <Link href="/news/category/development" className="block px-3 py-2 bg-green-100 text-green-800 rounded text-sm font-medium hover:bg-green-200 transition-colors duration-300">
-                                        Development
+                                    <Link href={`/news`} className={
+                                        (category.toLowerCase() === "all" || category.toLowerCase() === "")
+                                            ? "block px-3 py-2 bg-green-500 text-white rounded text-sm font-medium hover:bg-green-200 transition-colors duration-300"
+                                            : "block px-3 py-2 bg-green-100 text-green-800 rounded text-sm font-medium hover:bg-green-200 transition-colors duration-300"
+                                    }>
+                                        All News
                                     </Link>
                                 </li>
-                                <li>
-                                    <Link href="/news/category/marketing" className="block px-3 py-2 text-gray-600 hover:text-green-600 text-sm transition-colors duration-300">
-                                        Marketing
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link href="/news/category/technology" className="block px-3 py-2 text-gray-600 hover:text-green-600 text-sm transition-colors duration-300">
-                                        Technology
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link href="/news/category/startup" className="block px-3 py-2 text-gray-600 hover:text-green-600 text-sm transition-colors duration-300">
-                                        Start-up
-                                    </Link>
-                                </li>
+                                {!!categories.length && categories.map((categoryItem, index) => (
+                                    <li key={index}>
+                                        <Link href={`/news?category=${categoryItem.name}`} className={
+                                                categoryItem.name.toLowerCase() === category.toLowerCase() 
+                                                ? "block px-3 py-2 bg-green-500 text-white rounded text-sm font-medium hover:bg-green-200 transition-colors duration-300"
+                                                : "block px-3 py-2 bg-green-100 text-green-800 rounded text-sm font-medium hover:bg-green-200 transition-colors duration-300"
+                                            }>
+                                            {categoryItem.name}
+                                        </Link>
+                                    </li>
+                                ))}
                             </ul>
                         </div>
                     </div>
@@ -74,7 +142,7 @@ const NewsContent: React.FC<NewsContentProps> = ({ news = [] }) => {
                                 <div className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300">
                                     <div className="h-48 relative">
                                         <Image
-                                            src={article.image}
+                                            src={article.image.startsWith("//") ? article.image.replace("//", "https://") : article.image}
                                             alt={article.title}
                                             fill
                                             className="object-cover"
@@ -91,7 +159,7 @@ const NewsContent: React.FC<NewsContentProps> = ({ news = [] }) => {
                                             {article.excerpt}
                                         </p>
                                         <span className="text-orange-500 hover:text-orange-600 text-sm font-medium transition-colors duration-300">
-                                            Posted {article.postedDays} day{article.postedDays !== 1 ? 's' : ''} ago
+                                            Posted {getRelativeTime(article.postedDays)}
                                         </span>
                                     </div>
                                 </div>

@@ -4,7 +4,18 @@ import { HERO_CONFIGS } from "../../utils/constants/heroSections";
 import { ANIMATION_PRESETS } from "../../utils/constants/animations";
 import NewsContent from "@/components/NewsContent";
 
-export default function News() {
+interface PageProps {
+    searchParams: Promise<{ [key: string]: string }>
+}
+
+export default async function News({searchParams}: PageProps) {
+    const { category } = await searchParams;
+
+    let categoryString = category;
+    if (typeof category !== 'string') {
+        categoryString = "";
+    }
+
     return (
         <div className="min-h-screen bg-white">
             {/* Hero Section */}
@@ -15,7 +26,7 @@ export default function News() {
                 <section className="py-16 bg-gray-50">
                     <div className="px-4 sm:px-6 lg:px-20">
 
-                        <NewsContent news={[]} />
+                        <NewsContent category={categoryString}/>
                     </div>
                 </section>
             </AnimatedEntrance>
