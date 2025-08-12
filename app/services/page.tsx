@@ -52,12 +52,6 @@ export default function Services() {
                                         Eco-friendly practice promotion
                                     </li>
                                 </ul>
-                                <Link 
-                                    href="/services/environmental-protection" 
-                                    className="inline-block text-green-600 hover:text-green-700 font-medium"
-                                >
-                                    Learn More →
-                                </Link>
                             </div>
                         </AnimatedEntrance>
 
@@ -88,12 +82,6 @@ export default function Services() {
                                     Disposal system management
                                 </li>
                             </ul>
-                            <Link 
-                                href="/services/waste-management" 
-                                className="inline-block text-green-600 hover:text-green-700 font-medium"
-                            >
-                                Learn More →
-                            </Link>
                             </div>
                         </AnimatedEntrance>
 
@@ -124,12 +112,6 @@ export default function Services() {
                                     Vegetation cover restoration
                                 </li>
                             </ul>
-                            <Link 
-                                href="/services/flood-erosion-control" 
-                                className="inline-block text-green-600 hover:text-green-700 font-medium"
-                            >
-                                Learn More →
-                            </Link>
                             </div>
                         </AnimatedEntrance>
 
@@ -159,12 +141,6 @@ export default function Services() {
                                     Environmental education
                                 </li>
                             </ul>
-                            <Link 
-                                href="/services/climate-change" 
-                                className="inline-block text-green-600 hover:text-green-700 font-medium"
-                            >
-                                Learn More →
-                            </Link>
                         </div>
 
                         {/* Service 5 - Urban and Rural Sanitation */}
@@ -193,12 +169,6 @@ export default function Services() {
                                     Community hygiene promotion
                                 </li>
                             </ul>
-                            <Link 
-                                href="/services/sanitation" 
-                                className="inline-block text-green-600 hover:text-green-700 font-medium"
-                            >
-                                Learn More →
-                            </Link>
                         </div>
 
                         {/* Service 6 - Pollution Control */}
@@ -227,12 +197,6 @@ export default function Services() {
                                     Environmental impact assessments
                                 </li>
                             </ul>
-                            <Link 
-                                href="/services/pollution-control" 
-                                className="inline-block text-green-600 hover:text-green-700 font-medium"
-                            >
-                                Learn More →
-                            </Link>
                         </div>
                     </div>
                 </div>
