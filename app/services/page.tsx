@@ -1,4 +1,3 @@
-import Image from "next/image";
 import HeroSection from "../../components/HeroSection";
 import { HERO_CONFIGS } from "../../utils/constants/heroSections";
 import Link from "next/link";
