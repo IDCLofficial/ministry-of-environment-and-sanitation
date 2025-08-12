@@ -4,6 +4,7 @@ import { HERO_CONFIGS } from "../../utils/constants/heroSections";
 import Link from "next/link";
 import AnimatedEntrance from "../../components/AnimatedEntrance";
 import { ANIMATION_PRESETS, STAGGER_DELAYS } from "../../utils/constants/animations";
+import { GiCloudRing, GiFlood, GiGasMask, GiHut, GiLeafSwirl, GiTrashCan } from "react-icons/gi";
 
 export default function Services() {
     return (
@@ -16,46 +17,44 @@ export default function Services() {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-20">
                     <AnimatedEntrance {...ANIMATION_PRESETS.TITLE_FADE_DOWN} className="text-center mb-8 sm:mb-12 md:mb-16">
                         <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 sm:mb-6">
-                            What We Offer
+                            Our Environmental Services
                         </h2>
                         <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-                            Discover our comprehensive range of services designed to support farmers, 
-                            promote sustainable agriculture, and drive rural development across Imo State.
+                            Discover our comprehensive range of environmental services designed to protect, 
+                            preserve, and enhance the natural environment of Imo State for present and future generations.
                         </p>
                     </AnimatedEntrance>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-                        {/* Service 1 - Agricultural Extension Services */}
+                        {/* Service 1 - Environmental Protection and Sustainability */}
                         <AnimatedEntrance {...ANIMATION_PRESETS.CARD_FADE_UP} delay={STAGGER_DELAYS.MEDIUM[0]}>
                             <div className="bg-white border border-gray-200 rounded-lg p-6 sm:p-8 hover:shadow-lg hover:transform hover:scale-105 transition-all duration-300">
                                 <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-6">
-                                    <svg className="w-8 h-8 text-green-600" fill="currentColor" viewBox="0 0 20 20">
-                                        <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM9 8a2 2 0 100 4 2 2 0 000-4zM7 14a4 4 0 00-4 4v1a1 1 0 001 1h8a1 1 0 001-1v-1a4 4 0 00-4-4H7z" />
-                                    </svg>
+                                    <GiLeafSwirl className="w-8 h-8 text-green-600"/>
                                 </div>
                                 <h3 className="text-xl font-bold text-gray-900 mb-4">
-                                    Agricultural Extension Services
+                                    Environmental Protection and Sustainability
                                 </h3>
                                 <p className="text-gray-600 mb-6 leading-relaxed">
-                                    Expert advisory services, training programs, and technical support to help farmers 
-                                    adopt modern farming techniques and improve productivity.
+                                    Promote eco-friendly practices, enforce environmental laws, and ensure the preservation 
+                                    of forests, wetlands, and other natural resources across the state.
                                 </p>
                                 <ul className="text-sm text-gray-600 space-y-2 mb-6">
                                     <li className="flex items-center">
                                         <div className="w-1.5 h-1.5 bg-green-500 rounded-full mr-3"></div>
-                                        Farmer training and education
+                                        Environmental law enforcement
                                     </li>
                                     <li className="flex items-center">
                                         <div className="w-1.5 h-1.5 bg-green-500 rounded-full mr-3"></div>
-                                        Technical advisory services
+                                        Forest and wetland preservation
                                     </li>
                                     <li className="flex items-center">
                                         <div className="w-1.5 h-1.5 bg-green-500 rounded-full mr-3"></div>
-                                        Technology transfer programs
+                                        Eco-friendly practice promotion
                                     </li>
                                 </ul>
                                 <Link 
-                                    href="/services/extension" 
+                                    href="/services/environmental-protection" 
                                     className="inline-block text-green-600 hover:text-green-700 font-medium"
                                 >
                                     Learn More →
@@ -63,37 +62,35 @@ export default function Services() {
                             </div>
                         </AnimatedEntrance>
 
-                        {/* Service 2 - Crop Production Support */}
+                        {/* Service 2 - Efficient Waste Management */}
                         <AnimatedEntrance {...ANIMATION_PRESETS.CARD_FADE_UP} delay={STAGGER_DELAYS.MEDIUM[1]}>
                             <div className="bg-white border border-gray-200 rounded-lg p-6 sm:p-8 hover:shadow-lg hover:transform hover:scale-105 transition-all duration-300">
                             <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-6">
-                                <svg className="w-8 h-8 text-green-600" fill="currentColor" viewBox="0 0 20 20">
-                                    <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z" />
-                                </svg>
+                                <GiTrashCan className="w-8 h-8 text-green-600"/>
                             </div>
                             <h3 className="text-xl font-bold text-gray-900 mb-4">
-                                Crop Production Support
+                                Efficient Waste Management
                             </h3>
                             <p className="text-gray-600 mb-6 leading-relaxed">
-                                Comprehensive support for crop farmers including improved seeds, fertilizers, 
-                                and modern farming equipment to maximize yields.
+                                Develop and maintain effective solid and liquid waste collection, recycling, 
+                                and disposal systems to promote public health and environmental hygiene.
                             </p>
                             <ul className="text-sm text-gray-600 space-y-2 mb-6">
                                 <li className="flex items-center">
                                     <div className="w-1.5 h-1.5 bg-green-500 rounded-full mr-3"></div>
-                                    Improved seed distribution
+                                    Waste collection systems
                                 </li>
                                 <li className="flex items-center">
                                     <div className="w-1.5 h-1.5 bg-green-500 rounded-full mr-3"></div>
-                                    Fertilizer subsidies
+                                    Recycling programs
                                 </li>
                                 <li className="flex items-center">
                                     <div className="w-1.5 h-1.5 bg-green-500 rounded-full mr-3"></div>
-                                    Farm mechanization services
+                                    Disposal system management
                                 </li>
                             </ul>
                             <Link 
-                                href="/services/crop-production" 
+                                href="/services/waste-management" 
                                 className="inline-block text-green-600 hover:text-green-700 font-medium"
                             >
                                 Learn More →
@@ -101,37 +98,35 @@ export default function Services() {
                             </div>
                         </AnimatedEntrance>
 
-                        {/* Service 3 - Livestock Development */}
+                        {/* Service 3 - Flood and Erosion Control */}
                         <AnimatedEntrance {...ANIMATION_PRESETS.CARD_FADE_UP} delay={STAGGER_DELAYS.MEDIUM[2]}>
                             <div className="bg-white border border-gray-200 rounded-lg p-6 sm:p-8 hover:shadow-lg hover:transform hover:scale-105 transition-all duration-300">
                             <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-6">
-                                <svg className="w-8 h-8 text-green-600" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fillRule="evenodd" d="M3 3a1 1 0 000 2v8a2 2 0 002 2h2.586l-1.293 1.293a1 1 0 101.414 1.414L10 15.414l2.293 2.293a1 1 0 001.414-1.414L12.414 15H15a2 2 0 002-2V5a1 1 0 100-2H3zm11.707 4.707a1 1 0 00-1.414-1.414L10 9.586 8.707 8.293a1 1 0 00-1.414 0l-2 2a1 1 0 101.414 1.414L8 10.414l1.293 1.293a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                                </svg>
+                                <GiFlood className="w-8 h-8 text-green-600"/>
                             </div>
                             <h3 className="text-xl font-bold text-gray-900 mb-4">
-                                Livestock Development
+                                Flood and Erosion Control
                             </h3>
                             <p className="text-gray-600 mb-6 leading-relaxed">
-                                Professional veterinary services, breeding programs, and livestock management 
-                                support to enhance animal production and health.
+                                Implement strategic erosion and flood mitigation projects, especially in vulnerable 
+                                communities, through drainage construction, land reclamation, and vegetation cover restoration.
                             </p>
                             <ul className="text-sm text-gray-600 space-y-2 mb-6">
                                 <li className="flex items-center">
                                     <div className="w-1.5 h-1.5 bg-green-500 rounded-full mr-3"></div>
-                                    Veterinary services
+                                    Drainage construction
                                 </li>
                                 <li className="flex items-center">
                                     <div className="w-1.5 h-1.5 bg-green-500 rounded-full mr-3"></div>
-                                    Animal breeding programs
+                                    Land reclamation projects
                                 </li>
                                 <li className="flex items-center">
                                     <div className="w-1.5 h-1.5 bg-green-500 rounded-full mr-3"></div>
-                                    Feed production support
+                                    Vegetation cover restoration
                                 </li>
                             </ul>
                             <Link 
-                                href="/services/livestock" 
+                                href="/services/flood-erosion-control" 
                                 className="inline-block text-green-600 hover:text-green-700 font-medium"
                             >
                                 Learn More →
@@ -139,108 +134,102 @@ export default function Services() {
                             </div>
                         </AnimatedEntrance>
 
-                        {/* Service 4 - Natural Resource Management */}
+                        {/* Service 4 - Climate Change Response */}
                         <div className="bg-white border border-gray-200 rounded-lg p-6 sm:p-8 hover:shadow-lg transition-shadow">
                             <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-6">
-                                <svg className="w-8 h-8 text-green-600" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fillRule="evenodd" d="M4 2a2 2 0 00-2 2v11a3 3 0 106 0V4a2 2 0 00-2-2H4zm1 14a1 1 0 100-2 1 1 0 000 2zm5-1.757l4.9-4.9a2 2 0 000-2.828L13.485 5.1a2 2 0 00-2.828 0L10 5.757v8.486zM16 18H9.071l6-6H16a2 2 0 012 2v2a2 2 0 01-2 2z" clipRule="evenodd" />
-                                </svg>
+                                <GiCloudRing className="w-8 h-8 text-green-600"/>
                             </div>
                             <h3 className="text-xl font-bold text-gray-900 mb-4">
-                                Natural Resource Management
+                                Climate Change Response
                             </h3>
                             <p className="text-gray-600 mb-6 leading-relaxed">
-                                Environmental conservation services, forest management, and sustainable 
-                                resource utilization programs for ecological balance.
+                                Mainstream climate change adaptation and mitigation into state policies by promoting 
+                                clean energy, tree planting, and environmental education.
                             </p>
                             <ul className="text-sm text-gray-600 space-y-2 mb-6">
                                 <li className="flex items-center">
                                     <div className="w-1.5 h-1.5 bg-green-500 rounded-full mr-3"></div>
-                                    Forest conservation
+                                    Clean energy promotion
                                 </li>
                                 <li className="flex items-center">
                                     <div className="w-1.5 h-1.5 bg-green-500 rounded-full mr-3"></div>
-                                    Soil management
+                                    Tree planting initiatives
                                 </li>
                                 <li className="flex items-center">
                                     <div className="w-1.5 h-1.5 bg-green-500 rounded-full mr-3"></div>
-                                    Water resource management
+                                    Environmental education
                                 </li>
                             </ul>
                             <Link 
-                                href="/services/natural-resources" 
+                                href="/services/climate-change" 
                                 className="inline-block text-green-600 hover:text-green-700 font-medium"
                             >
                                 Learn More →
                             </Link>
                         </div>
 
-                        {/* Service 5 - Agricultural Credit & Finance */}
+                        {/* Service 5 - Urban and Rural Sanitation */}
                         <div className="bg-white border border-gray-200 rounded-lg p-6 sm:p-8 hover:shadow-lg transition-shadow">
                             <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-6">
-                                <svg className="w-8 h-8 text-green-600" fill="currentColor" viewBox="0 0 20 20">
-                                    <path d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z" />
-                                </svg>
+                                <GiHut className="w-8 h-8 text-green-600"/>
                             </div>
                             <h3 className="text-xl font-bold text-gray-900 mb-4">
-                                Agricultural Credit & Finance
+                                Urban and Rural Sanitation
                             </h3>
                             <p className="text-gray-600 mb-6 leading-relaxed">
-                                Financial support services including micro-credit schemes, loan facilitation, 
-                                and agricultural insurance programs for farmers.
+                                Drive cleanliness campaigns across all 27 LGAs, enforce public sanitation laws, 
+                                and promote personal and community hygiene through environmental health officers.
                             </p>
                             <ul className="text-sm text-gray-600 space-y-2 mb-6">
                                 <li className="flex items-center">
                                     <div className="w-1.5 h-1.5 bg-green-500 rounded-full mr-3"></div>
-                                    Micro-credit programs
+                                    Cleanliness campaigns
                                 </li>
                                 <li className="flex items-center">
                                     <div className="w-1.5 h-1.5 bg-green-500 rounded-full mr-3"></div>
-                                    Loan facilitation
+                                    Sanitation law enforcement
                                 </li>
                                 <li className="flex items-center">
                                     <div className="w-1.5 h-1.5 bg-green-500 rounded-full mr-3"></div>
-                                    Agricultural insurance
+                                    Community hygiene promotion
                                 </li>
                             </ul>
                             <Link 
-                                href="/services/credit-finance" 
+                                href="/services/sanitation" 
                                 className="inline-block text-green-600 hover:text-green-700 font-medium"
                             >
                                 Learn More →
                             </Link>
                         </div>
 
-                        {/* Service 6 - Market Development */}
+                        {/* Service 6 - Pollution Control */}
                         <div className="bg-white border border-gray-200 rounded-lg p-6 sm:p-8 hover:shadow-lg transition-shadow">
                             <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-6">
-                                <svg className="w-8 h-8 text-green-600" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fillRule="evenodd" d="M10 2L3 7v11a2 2 0 002 2h4a2 2 0 002-2v-4h2v4a2 2 0 002 2h4a2 2 0 002-2V7l-7-5zM6 9a1 1 0 112 0v4a1 1 0 11-2 0V9zm6 0a1 1 0 112 0v4a1 1 0 11-2 0V9z" clipRule="evenodd" />
-                                </svg>
+                                <GiGasMask className="w-8 h-8 text-green-600"/>
                             </div>
                             <h3 className="text-xl font-bold text-gray-900 mb-4">
-                                Market Development
+                                Pollution Control
                             </h3>
                             <p className="text-gray-600 mb-6 leading-relaxed">
-                                Market linkage services, value chain development, and agribusiness 
-                                support to ensure profitable agricultural enterprises.
+                                Monitor and reduce air, water, and land pollution by regulating industrial emissions, 
+                                controlling dumping activities, and enforcing environmental impact assessments.
                             </p>
                             <ul className="text-sm text-gray-600 space-y-2 mb-6">
                                 <li className="flex items-center">
                                     <div className="w-1.5 h-1.5 bg-green-500 rounded-full mr-3"></div>
-                                    Market linkage programs
+                                    Industrial emission regulation
                                 </li>
                                 <li className="flex items-center">
                                     <div className="w-1.5 h-1.5 bg-green-500 rounded-full mr-3"></div>
-                                    Value chain development
+                                    Dumping activity control
                                 </li>
                                 <li className="flex items-center">
                                     <div className="w-1.5 h-1.5 bg-green-500 rounded-full mr-3"></div>
-                                    Agribusiness support
+                                    Environmental impact assessments
                                 </li>
                             </ul>
                             <Link 
-                                href="/services/market-development" 
+                                href="/services/pollution-control" 
                                 className="inline-block text-green-600 hover:text-green-700 font-medium"
                             >
                                 Learn More →
@@ -258,7 +247,7 @@ export default function Services() {
                             How to Access Our Services
                         </h2>
                         <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-                            Follow these simple steps to access our agricultural services and support programs
+                            Follow these simple steps to access our environmental services and support programs
                         </p>
                     </div>
 
@@ -326,7 +315,7 @@ export default function Services() {
                     </h2>
                     <p className="text-lg text-green-100 mb-8 sm:mb-12 max-w-3xl mx-auto">
                         Contact us today to learn more about our services and how we can support 
-                        your agricultural endeavors in Imo State.
+                        your environmental protection and sustainability efforts in Imo State.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                         <Link 

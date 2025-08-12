@@ -129,6 +129,7 @@ export default function Footer() {
                                     <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-green-500 transition-all duration-300 group-hover:w-full"></div>
                                 </h4>
                                 <ul className="space-y-2 sm:space-y-3">
+                                    <li><Link href="/services" className="text-gray-300 hover:text-green-300 hover:translate-x-1 transition-all duration-300 text-sm sm:text-base inline-block">Media</Link></li>
                                     <li><Link href="/media" className="text-gray-300 hover:text-green-300 hover:translate-x-1 transition-all duration-300 text-sm sm:text-base inline-block">Media</Link></li>
                                     <li><Link href="/contact" className="text-gray-300 hover:text-green-300 hover:translate-x-1 transition-all duration-300 text-sm sm:text-base inline-block">Contact Us</Link></li>
                                 </ul>

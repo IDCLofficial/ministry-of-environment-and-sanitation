@@ -34,10 +34,8 @@ export const HERO_CONFIGS = {
   SERVICES: {
     title: "Our Services",
     description: "Comprehensive environmental management and sanitation services for Imo State",
-    backgroundGradient: "bg-gradient-to-r from-green-600 to-green-500",
     height: 'medium' as const,
-    alignment: 'center' as const,
-    overlay: false
+    alignment: 'left' as const,
   },
   
   NEWS: {
