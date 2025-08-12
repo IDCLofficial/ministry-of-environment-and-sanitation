@@ -118,7 +118,7 @@ export default function About() {
                             </p>
                             <p className="text-sm sm:text-base md:text-lg text-gray-700 leading-relaxed mb-4 sm:mb-6">
                                 Sworn in on April 30, 2024, by Governor Hope Uzodimma, Hon. Barr. Major Ejikeme Chuks Major Emenike
-                                is a legal professional with extensive public service experience. He leads the state's environmental
+                                is a legal professional with extensive public service experience. He leads the state&apos;s environmental
                                 agenda with a commitment to policy rigor, stakeholder engagement, and effective implementation.
                             </p>
                             <p className="text-sm sm:text-base md:text-lg text-gray-700 leading-relaxed mb-6 sm:mb-8">
