@@ -16,11 +16,11 @@ export default function About() {
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16">
                         <AnimatedEntrance {...ANIMATION_PRESETS.IMAGE_FADE_UP} className="order-2 lg:order-1">
                             <Image
-                                src="/assets/no-image.png"
+                                src="/photos/ENV - MINISTRY OF ENVIRONMENT AND SANITATION.jpeg"
                                 alt="Environmental landscape showing clean environment and sanitation efforts"
                                 width={600}
                                 height={400}
-                                className="rounded-lg shadow-lg w-full h-auto hover:shadow-xl transition-shadow duration-300"
+                                className="rounded-lg shadow-lg w-full h-auto hover:shadow-xl transition-shadow duration-300 object-contain object-top"
                             />
                         </AnimatedEntrance>
                         <div className="order-1 lg:order-2">
@@ -131,13 +131,13 @@ export default function About() {
                                 Read Full Bio
                             </button>
                         </div>
-                        <div className="order-1 lg:order-2">
+                        <div className="order-1 lg:order-2 aspect-[3/4]">
                             <Image
-                                src="/assets/no-image.png"
+                                src="/photos/Hon. Barr. Major Ejikeme Chuks Major Emenike - MINISTRY OF ENVIRONMENT AND SANITATION PIC.jpg"
                                 alt="Hon. Barr. Major Ejikeme Chuks Major Emenike - Honorable Commissioner for Environment and Sanitation"
                                 width={500}
                                 height={600}
-                                className="rounded-lg shadow-lg w-full h-auto"
+                                className="rounded-lg shadow-lg w-full h-full object-top object-cover"
                             />
                         </div>
                     </div>
@@ -306,9 +306,9 @@ export default function About() {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 max-w-5xl mx-auto">
                         {/* Commissioner */}
                         <div className="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100">
-                            <div className="h-64 bg-gray-100 overflow-hidden">
+                            <div className="aspect-[3.8/4] bg-gray-100 overflow-hidden">
                                 <Image
-                                    src="/assets/no-image.png"
+                                    src="/photos/Hon. Barr. Major Ejikeme Chuks Major Emenike - MINISTRY OF ENVIRONMENT AND SANITATION PIC.jpg"
                                     alt="Hon. Barr. Major Ejikeme Chuks Major Emenike - Commissioner for Environment and Sanitation"
                                     width={400}
                                     height={400}
@@ -324,13 +324,13 @@ export default function About() {
 
                         {/* Permanent Secretary */}
                         <div className="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100">
-                            <div className="h-64 bg-gray-100 overflow-hidden">
+                            <div className="aspect-[3.8/4] bg-gray-100 overflow-hidden">
                                 <Image
-                                    src="/assets/no-image.png"
+                                    src="/photos/Chukwuma O. Iheanacho Permanentl Secretary Ministry of Environment and Sanitation.jpeg"
                                     alt="Pst. Chukwuma Iheanacho - Permanent Secretary"
                                     width={400}
                                     height={400}
-                                    className="w-full h-full object-cover"
+                                    className="w-full h-full object-cover object-top"
                                 />
                             </div>
                             <div className="p-6">
@@ -359,7 +359,7 @@ export default function About() {
                         </div>
                         <div>
                             <Image
-                                src="/assets/no-image.png"
+                                src="/photos/GROUP - MINISTRY OF ENVIRONMENT AND SANITATION.jpg"
                                 alt="Ministry of Environment and Sanitation Building"
                                 width={600}
                                 height={400}

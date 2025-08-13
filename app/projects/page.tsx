@@ -30,7 +30,8 @@ const ENVIRONMENTAL_PROJECTS = [
         location: "Statewide",
         category: "Waste Management",
         status: "In Progress",
-        partners: "ENTRACO, Local Governments"
+        partners: "ENTRACO, Local Governments",
+        src: "/photos/waste-management - Ministry of Environment.jpg"
     },
     {
         number: 2,
@@ -39,7 +40,8 @@ const ENVIRONMENTAL_PROJECTS = [
         location: "Various LGAs",
         category: "Infrastructure",
         status: "In Progress",
-        partners: "World Bank, Federal Ministry of Environment"
+        partners: "World Bank, Federal Ministry of Environment",
+        src: "/photos/flood-and-erosion-control - Ministry of Environment.jpg"
     },
     {
         number: 3,
@@ -48,7 +50,8 @@ const ENVIRONMENTAL_PROJECTS = [
         location: "Statewide",
         category: "Conservation",
         status: "Ongoing",
-        partners: "NGOs, Community Groups"
+        partners: "NGOs, Community Groups",
+        src: "/photos/tree-planting - Ministry of Environment.jpg"
     },
     {
         number: 4,
@@ -57,7 +60,8 @@ const ENVIRONMENTAL_PROJECTS = [
         location: "Urban Centers",
         category: "Sanitation",
         status: "Active",
-        partners: "ENTRACO, LGAs"
+        partners: "ENTRACO, LGAs",
+        src: "/photos/environmental-sanitation - Ministry of Environmen.jpg"
     },
     {
         number: 5,
@@ -66,7 +70,8 @@ const ENVIRONMENTAL_PROJECTS = [
         location: "State Capital",
         category: "Policy & Research",
         status: "Completed",
-        partners: "Ford Foundation, NGOs"
+        partners: "Ford Foundation, NGOs",
+        src: "/photos/climate-change-knowledge-paper - Ministry of Environment.jpg"
     },
     {
         number: 6,
@@ -75,7 +80,8 @@ const ENVIRONMENTAL_PROJECTS = [
         location: "Statewide",
         category: "Public Outreach",
         status: "Ongoing",
-        partners: "Media Houses, Community Groups"
+        partners: "Media Houses, Community Groups",
+        src: "/photos/public-environmental-awareness-campaigns - Ministry of Environment.jpg"
     },
     {
         number: 7,
@@ -84,7 +90,8 @@ const ENVIRONMENTAL_PROJECTS = [
         location: "Industrial Areas",
         category: "Regulation",
         status: "Active",
-        partners: "NESREA, State Environmental Protection Agency"
+        partners: "NESREA, State Environmental Protection Agency",
+        src: "/photos/environmental-compliance-monitoring-and-inspection - Ministry of Environment.jpg"
     },
     {
         number: 8,
@@ -93,7 +100,8 @@ const ENVIRONMENTAL_PROJECTS = [
         location: "Urban Centers",
         category: "Waste Management",
         status: "In Progress",
-        partners: "NNRA, Federal Ministry of Environment"
+        partners: "NNRA, Federal Ministry of Environment",
+        src: "/photos/scrap-metal-and-hazardous-waste-control-program - Ministry of Environment.jpg"
     },
     {
         number: 9,
@@ -102,7 +110,8 @@ const ENVIRONMENTAL_PROJECTS = [
         location: "Selected Schools",
         category: "Education",
         status: "Active",
-        partners: "Ministry of Education, Schools"
+        partners: "Ministry of Education, Schools",
+        src: "/photos/green-school-project - Ministry of Environment.png"
     },
     {
         number: 10,
@@ -111,7 +120,8 @@ const ENVIRONMENTAL_PROJECTS = [
         location: "All LGAs",
         category: "Community Engagement",
         status: "Ongoing",
-        partners: "Community Groups, Youth Organizations"
+        partners: "Community Groups, Youth Organizations",
+        src: "/photos/community-clean-up-and-volunteer-mobilization-drives - Ministry of Environment.jpeg"
     }
 ];
 
@@ -152,7 +162,7 @@ export default function Projects() {
                                     <div className="bg-white border border-gray-200 h-full rounded-lg overflow-hidden hover:shadow-lg transition-all duration-300">
                                         <div className="h-48 bg-green-50 flex items-center justify-center overflow-hidden">
                                             <Image
-                                                src={'/assets/no-image.png'}
+                                                src={project.src || '/assets/no-image.png'}
                                                 alt={project.title}
                                                 width={400}
                                                 height={200}

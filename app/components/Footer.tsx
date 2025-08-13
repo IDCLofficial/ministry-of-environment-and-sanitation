@@ -162,7 +162,7 @@ export default function Footer() {
                                         {isSubmitting ? 'Subscribing...' : 'Subscribe'}
                                     </button>
                                 </form>
-                                <div className="mt-4 sm:mt-6 space-y-1 sm:space-y-2 text-xs sm:text-sm text-gray-300">
+                                <div className="mt-4 sm:mt-6 space-y-1 sm:space-y-2 text-xs sm:text-sm text-gray-300 grid">
                                     <a href="tel:" className="hover:text-green-300 transition-colors duration-300 cursor-pointer">[Official phone number to be provided]</a>
                                     <a href="mailto:commissioner.ind.solid.min@gmail.com" className="hover:text-green-300 transition-colors duration-300 cursor-pointer">commissioner.ind.solid.min@gmail.com</a>
                                     <p className="leading-relaxed hover:text-gray-200 transition-colors duration-300">
@@ -175,7 +175,7 @@ export default function Footer() {
 
                     <AnimatedEntrance {...ANIMATION_PRESETS.SECTION_FADE_IN} delay={600}>
                         <div className="border-t border-gray-600 mt-8 sm:mt-10 md:mt-12 pt-4 sm:pt-6 md:pt-8 text-center">
-                            <p className="text-gray-300 text-sm sm:text-base hover:text-white transition-colors duration-300">Imo State Government</p>
+                            <p className="text-gray-300 text-sm sm:text-base hover:text-white transition-colors duration-300">Powered by <span className="text-green-500 font-semibold">Imo State Digital City</span></p>
                         </div>
                     </AnimatedEntrance>
                 </div>

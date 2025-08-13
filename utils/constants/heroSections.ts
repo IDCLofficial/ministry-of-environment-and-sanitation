@@ -17,6 +17,12 @@ export const HERO_CONFIGS = {
     height: 'extra-large' as const,
     alignment: 'left' as const
   },
+
+  DEPARTMENT: {
+    title: "Department of Environment and Sanitation",
+    height: 'medium' as const,
+    alignment: 'left' as const
+  },
   
   PROJECTS: {
     title: "Transforming Imo Through Strategic Environmental Projects",

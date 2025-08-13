@@ -29,7 +29,7 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 md:gap-12 items-center">
             <AnimatedEntrance {...ANIMATION_PRESETS.IMAGE_FADE_UP} className="order-2 lg:order-1">
               <Image
-                src="/assets/no-image.png"
+                src="/photos/home-banner - Ministry of Environment and Sanitation.jpg"
                 alt="Environmental landscape with clean surroundings"
                 width={600}
                 height={400}
@@ -91,7 +91,7 @@ export default function Home() {
             <div className="flex-1 order-1 lg:order-2">
               <AnimatedEntrance {...ANIMATION_PRESETS.IMAGE_FADE_UP}>
                 <Image
-                  src="/assets/no-image.png"
+                  src="/photos/Hon. Barr. Major Ejikeme Chuks Major Emenike - MINISTRY OF ENVIRONMENT AND SANITATION.jpg"
                   alt="Hon. Barr. Major Ejikeme Chuks Major Emenike - Commissioner for Environment and Sanitation"
                   width={500}
                   height={600}
@@ -182,17 +182,28 @@ export default function Home() {
               Environmental Partners
             </h2>
           </AnimatedEntrance>
-          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-7 gap-4 sm:gap-6 md:gap-8 items-center">
-            {[1, 2, 3, 4, 5, 6, 7].map((item, index) => (
-              <AnimatedEntrance key={item} {...ANIMATION_PRESETS.CARD_FADE_UP} delay={STAGGER_DELAYS.FAST[index] || STAGGER_DELAYS.FAST[5]}>
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 sm:gap-6 md:gap-8 items-center">
+            {[
+              { name: "Federal Ministry of Environment", src: "/photos/federal-ministry-of-environment.jpg" },
+              { name: "National Environmental Standards and Regulations Enforcement Agency (NESREA)", src: "/photos/national-environmental-standards-and-regulations-enforcement-agency.png" },
+              { name: "Nigerian Nuclear Regulatory Authority (NNRA)", src: "/photos/nigerian-nuclear-regulatory-authority.jpg" },
+              { name: "World Bank (via ACReSAL and NEWMAP projects)", src: "/photos/world-bank.png" },
+              { name: "United Nations Development Programme (UNDP)", src: "/photos/united-nations-development-programme.jpg" },
+              { name: "Ford Foundation", src: "/photos/ford-foundation.jpg" },
+              { name: "Space for Change (NGO)", src: "/photos/space-for-change.jpg" },
+              { name: "Ike Odoeme Foundation", src: "/photos/ike-odoeme-foundation.jpg" },
+              { name: "Imo State Internal Revenue Service (IIRS)", src: "/photos/imo-state-internal-revenue-service.png" },
+            ].map((partner, index) => (
+              <AnimatedEntrance key={partner.name} {...ANIMATION_PRESETS.CARD_FADE_UP} delay={STAGGER_DELAYS.FAST[index] || STAGGER_DELAYS.FAST[5]}>
                 <div className="text-center hover:transform hover:scale-110 transition-all duration-300 cursor-pointer">
                   <div className="bg-white p-2 rounded-lg shadow-sm">
                     <Image 
-                      src="/assets/no-image.png"
-                      alt={`Environmental Partner ${item}`}
+                      src={partner.src}
+                      alt={partner.name}
+                      title={partner.name}
                       width={100}
                       height={60}
-                      className="w-full h-auto object-contain"
+                      className="w-full h-auto object-contain aspect-[2/1]"
                     />
                   </div>
                 </div>
