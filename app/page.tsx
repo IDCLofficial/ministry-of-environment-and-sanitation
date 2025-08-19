@@ -83,9 +83,9 @@ export default function Home() {
                 </p>
               </AnimatedEntrance>
               <AnimatedEntrance {...ANIMATION_PRESETS.BUTTON_SCALE_UP} delay={600}>
-                <button className="bg-[#4CAF50]/90 hover:bg-[#4CAF50] cursor-pointer text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg text-sm sm:text-base font-semibold hover:transform hover:scale-105 transition-all duration-300">
+                <Link href={"/about#commissioner"} className="bg-[#4CAF50]/90 hover:bg-[#4CAF50] cursor-pointer text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg text-sm sm:text-base font-semibold hover:transform hover:scale-105 transition-all duration-300">
                   Read Full Bio
-                </button>
+                </Link>
               </AnimatedEntrance>
             </div>
             <div className="flex-1 order-1 lg:order-2">
@@ -182,7 +182,7 @@ export default function Home() {
               Environmental Partners
             </h2>
           </AnimatedEntrance>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 sm:gap-6 md:gap-8 items-center">
+          <div className="flex flex-wrap justify-center items-center gap-4 sm:gap-6 md:gap-8">
             {[
               { name: "Federal Ministry of Environment", src: "/photos/federal-ministry-of-environment.jpg" },
               { name: "National Environmental Standards and Regulations Enforcement Agency (NESREA)", src: "/photos/national-environmental-standards-and-regulations-enforcement-agency.png" },
@@ -196,8 +196,8 @@ export default function Home() {
             ].map((partner, index) => (
               <AnimatedEntrance key={partner.name} {...ANIMATION_PRESETS.CARD_FADE_UP} delay={STAGGER_DELAYS.FAST[index] || STAGGER_DELAYS.FAST[5]}>
                 <div className="text-center hover:transform hover:scale-110 transition-all duration-300 cursor-pointer">
-                  <div className="bg-white p-2 rounded-lg shadow-sm">
-                    <Image 
+                  <div className="bg-white p-2 rounded-lg shadow-sm w-24 sm:w-32 md:w-40">
+                    <Image
                       src={partner.src}
                       alt={partner.name}
                       title={partner.name}

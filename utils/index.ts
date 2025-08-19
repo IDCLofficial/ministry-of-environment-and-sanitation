@@ -31,3 +31,13 @@ export const getRelativeTime = (dateInput: string | number): string => {
     if (diffInMonths < 12) return `${diffInMonths} month${diffInMonths !== 1 ? 's' : ''} ago`;
     return `${diffInYears} year${diffInYears !== 1 ? 's' : ''} ago`;
 };
+
+// Slugify function
+export const slugify = (text: string): string => {
+    return text.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+};
+
+// unslugify function
+export const unslugify = (slug: string): string => {
+    return slug.replace(/-/g, ' ');
+};

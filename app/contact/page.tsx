@@ -109,7 +109,7 @@ export default function Contact() {
                                             </svg>
                                         </div>
                                         <h3 className="text-xl font-bold text-gray-900 mb-2">Phone</h3>
-                                        <a href="tel:" className="text-blue-600 hover:text-blue-800 transition-colors duration-300">[To be provided]</a>
+                                        <a href="tel:+2348033372465" className="text-blue-600 hover:text-blue-800 transition-colors duration-300">+234 803 337 2465</a>
                                     </div>
                                 </AnimatedEntrance>
 

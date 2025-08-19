@@ -163,7 +163,7 @@ export default function Footer() {
                                     </button>
                                 </form>
                                 <div className="mt-4 sm:mt-6 space-y-1 sm:space-y-2 text-xs sm:text-sm text-gray-300 grid">
-                                    <a href="tel:" className="hover:text-green-300 transition-colors duration-300 cursor-pointer">[Official phone number to be provided]</a>
+                                    <a href="tel:+2348033372465" className="hover:text-green-300 transition-colors duration-300 cursor-pointer">+234 803 337 2465</a>
                                     <a href="mailto:commissioner.ind.solid.min@gmail.com" className="hover:text-green-300 transition-colors duration-300 cursor-pointer">commissioner.ind.solid.min@gmail.com</a>
                                     <p className="leading-relaxed hover:text-gray-200 transition-colors duration-300">
                                         Ministry of Environment and Sanitation, State Secretariat, Owerri, Imo State
