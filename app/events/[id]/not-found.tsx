@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 import AnimatedEntrance from "@/components/AnimatedEntrance";
 import { ANIMATION_PRESETS, STAGGER_DELAYS } from "@/utils/constants/animations";
 import { FaCalendarAlt, FaHome, FaArrowLeft } from "react-icons/fa";

@@ -102,31 +102,31 @@ const EmptyState: React.FC = () => {
   );
 };
 
-const ErrorState: React.FC<{ onRetry: () => void }> = ({ onRetry }) => {
-  return (
-    <div className="">
-      <AnimatedEntrance {...ANIMATION_PRESETS.CARD_FADE_UP}>
-        <div className="bg-white rounded-lg p-8 text-center border border-red-200 shadow-sm">
-          <div className="flex justify-center mb-4">
-            <div className="w-20 h-20 rounded-full bg-red-100 flex items-center justify-center">
-              <FaCalendarAlt className="text-red-600" size={32} />
-            </div>
-          </div>
-          <h3 className="text-xl font-bold text-gray-900 mb-2">Error Loading Events</h3>
-          <p className="text-gray-600 mb-6">
-            We encountered an error while loading the events. Please try again.
-          </p>
-          <button 
-            onClick={onRetry}
-            className="inline-block px-6 py-3 bg-red-600 text-white font-medium rounded-md hover:bg-red-700 transition-colors duration-300"
-          >
-            Try Again
-          </button>
-        </div>
-      </AnimatedEntrance>
-    </div>
-  );
-};
+// const ErrorState: React.FC<{ onRetry: () => void }> = ({ onRetry }) => {
+//   return (
+//     <div className="">
+//       <AnimatedEntrance {...ANIMATION_PRESETS.CARD_FADE_UP}>
+//         <div className="bg-white rounded-lg p-8 text-center border border-red-200 shadow-sm">
+//           <div className="flex justify-center mb-4">
+//             <div className="w-20 h-20 rounded-full bg-red-100 flex items-center justify-center">
+//               <FaCalendarAlt className="text-red-600" size={32} />
+//             </div>
+//           </div>
+//           <h3 className="text-xl font-bold text-gray-900 mb-2">Error Loading Events</h3>
+//           <p className="text-gray-600 mb-6">
+//             We encountered an error while loading the events. Please try again.
+//           </p>
+//           <button 
+//             onClick={onRetry}
+//             className="inline-block px-6 py-3 bg-red-600 text-white font-medium rounded-md hover:bg-red-700 transition-colors duration-300"
+//           >
+//             Try Again
+//           </button>
+//         </div>
+//       </AnimatedEntrance>
+//     </div>
+//   );
+// };
 
 export default async function EventsSection({ page = "1" }: EventsSectionProps) {
   const events = await fetchEvents(parseInt(page));

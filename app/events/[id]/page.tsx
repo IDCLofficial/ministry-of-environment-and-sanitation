@@ -24,7 +24,7 @@ const getEventData = async (id: string): Promise<Events | null> => {
 };
 
 
-const buildImageUrl = (imageField: any): string | null => {
+const buildImageUrl = (imageField: Events["fields"]["firstSpeakerPicture"]): string | null => {
     const url = imageField?.fields?.file?.url;
     return url ? `https:${url}` : null;
 };
@@ -61,7 +61,7 @@ const EventDetails = ({ event }: { event: Events }) => {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-20">
                     <h2 className="text-2xl font-bold text-gray-900 mb-8">EVENT DETAILS</h2>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                        {details.map((detail, index) => (
+                        {details.map((detail) => (
                             <div key={detail.label}>
                                 <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-2">
                                     {detail.label}

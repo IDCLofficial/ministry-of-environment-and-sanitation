@@ -128,27 +128,25 @@ export const Pagination: React.FC<PaginationProps> = ({
 }) => {
   const router = useRouter();
   const [isMobile, setIsMobile] = useState(false);
-  
+
   // Detect screen size for responsive pagination
   useEffect(() => {
     const checkScreenSize = () => {
       setIsMobile(window.innerWidth < 768); // md breakpoint
     };
-    
+
     checkScreenSize();
     window.addEventListener('resize', checkScreenSize);
-    
+
     return () => window.removeEventListener('resize', checkScreenSize);
   }, []);
-  
+
   const totalPages = Math.max(0, Math.ceil(totalCount / pageSize));
   const labels = { ...DEFAULT_LABELS, ...(labelsProp || {}) };
-  
+
   // Adjust pagination parameters based on screen size
   const responsiveSiblingCount = isMobile ? 0 : siblingCount;
   const responsiveBoundaryCount = isMobile ? 1 : boundaryCount;
-
-  if (totalPages <= 1) return null; // nothing to paginate
 
   const isFirst = currentPage <= 1;
   const isLast = currentPage >= totalPages;
@@ -161,7 +159,7 @@ export const Pagination: React.FC<PaginationProps> = ({
   const liBase = 'list-none';
   const containerBase = 'flex items-center gap-2 justify-center';
 
-  const onPageChange = useCallback((page: number)=>{
+  const onPageChange = useCallback((page: number) => {
     if (type === "news") {
       if (!category) {
         router.push(`/news?page=${page}`);
@@ -192,6 +190,8 @@ export const Pagination: React.FC<PaginationProps> = ({
     onPageChange(page);
   };
 
+  if (totalPages <= 1) return null; // nothing to paginate
+
   const renderControl = (
     label: string,
     targetPage: number,
@@ -217,14 +217,16 @@ export const Pagination: React.FC<PaginationProps> = ({
     if (getPageHref) {
       const href = getPageHref(targetPage) || '#';
       return (
-        <a className='' {...(commonProps as any)} href={href} onClick={(e) => onClick(targetPage, e)}>
-          {content}
-        </a>
+        <button type="button" {...(commonProps as unknown as React.ButtonHTMLAttributes<HTMLButtonElement>)} disabled={isDisabled}>
+          <a className='' href={href} onClick={(e) => onClick(targetPage, e)}>
+            {content}
+          </a>
+        </button>
       );
     }
 
     return (
-      <button type="button" {...(commonProps as any)} disabled={isDisabled}>
+      <button type="button" {...(commonProps as unknown as React.ButtonHTMLAttributes<HTMLButtonElement>)} disabled={isDisabled}>
         {content}
       </button>
     );

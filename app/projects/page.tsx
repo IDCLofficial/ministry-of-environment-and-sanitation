@@ -152,7 +152,6 @@ export default function Projects() {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-20">
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {ENVIRONMENTAL_PROJECTS.map((project, index) => {
-                            const IconComponent = PROJECT_ICONS[project.number as keyof typeof PROJECT_ICONS];
                             return (
                                 <AnimatedEntrance 
                                     key={project.number} 
