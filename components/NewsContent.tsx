@@ -18,14 +18,15 @@ interface DisplayNews {
     slug: string
 }
 
-const ministryId = process.env.NEXT_PUBLIC_MINISTRY_ID;
-
-if (!ministryId) {
-    throw new Error("MINISTRY_ID is not defined");
-}
 
 
-const NewsContent: React.FC<{category: string, page: string}> = async ({category, page}) => {
+
+const NewsContent: React.FC<{ category: string, page: string }> = async ({ category, page }) => {
+    const ministryId = process.env.NEXT_PUBLIC_MINISTRY_ID;
+
+    if (!ministryId) {
+        return <div>Ministry ID not found</div>
+    }
     // Transform NewsPost to DisplayNews format
     const transformNewsData = (newsItems: NewsPost[]): DisplayNews[] => {
         return newsItems.map((item: NewsPost) => ({
@@ -140,10 +141,10 @@ const NewsContent: React.FC<{category: string, page: string}> = async ({category
                                 {!!categories?.length && categories.map((categoryItem) => (
                                     <li key={categoryItem.id}>
                                         <Link href={`/news?category=${categoryItem.id}`} className={
-                                                categoryItem.id.toLowerCase() === category.toLowerCase() 
+                                            categoryItem.id.toLowerCase() === category.toLowerCase()
                                                 ? "block px-3 py-2 bg-green-500 text-white rounded text-sm font-medium hover:bg-green-200 transition-colors duration-300"
                                                 : "block px-3 py-2 bg-green-100 text-green-800 rounded text-sm font-medium hover:bg-green-200 transition-colors duration-300"
-                                            }>
+                                        }>
                                             {categoryItem.name}
                                         </Link>
                                     </li>
