@@ -1,6 +1,5 @@
 import HeroSection from "../../components/HeroSection";
 import { HERO_CONFIGS } from "../../utils/constants/heroSections";
-import Link from "next/link";
 import AnimatedEntrance from "../../components/AnimatedEntrance";
 import { ANIMATION_PRESETS, STAGGER_DELAYS } from "../../utils/constants/animations";
 import { GiCloudRing, GiFlood, GiGasMask, GiHut, GiLeafSwirl, GiTrashCan } from "react-icons/gi";
@@ -197,74 +196,6 @@ export default function Services() {
                                     Environmental impact assessments
                                 </li>
                             </ul>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            {/* Service Process Section */}
-            <section className="py-12 sm:py-16 md:py-20 bg-gray-50">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-20">
-                    <div className="text-center mb-8 sm:mb-12 md:mb-16">
-                        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 sm:mb-6">
-                            How to Access Our Services
-                        </h2>
-                        <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-                            Follow these simple steps to access our environmental services and support programs
-                        </p>
-                    </div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-4 gap-6 sm:gap-8">
-                        {/* Step 1 */}
-                        <div className="text-center">
-                            <div className="w-16 h-16 bg-green-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
-                                1
-                            </div>
-                            <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                                Visit Our Office
-                            </h3>
-                            <p className="text-gray-600 text-sm">
-                                Come to our office at the State Secretariat or contact us via phone/email
-                            </p>
-                        </div>
-
-                        {/* Step 2 */}
-                        <div className="text-center">
-                            <div className="w-16 h-16 bg-green-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
-                                2
-                            </div>
-                            <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                                Consultation
-                            </h3>
-                            <p className="text-gray-600 text-sm">
-                                Meet with our experts to discuss your needs and identify suitable services
-                            </p>
-                        </div>
-
-                        {/* Step 3 */}
-                        <div className="text-center">
-                            <div className="w-16 h-16 bg-green-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
-                                3
-                            </div>
-                            <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                                Application
-                            </h3>
-                            <p className="text-gray-600 text-sm">
-                                Complete the necessary forms and provide required documentation
-                            </p>
-                        </div>
-
-                        {/* Step 4 */}
-                        <div className="text-center">
-                            <div className="w-16 h-16 bg-green-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
-                                4
-                            </div>
-                            <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                                Service Delivery
-                            </h3>
-                            <p className="text-gray-600 text-sm">
-                                Receive the approved services and ongoing support from our team
-                            </p>
                         </div>
                     </div>
                 </div>

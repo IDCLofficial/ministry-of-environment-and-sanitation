@@ -295,6 +295,12 @@ export default function Contact() {
                                         <p id="message-error" className="mt-2 text-sm text-red-600">{errors.message}</p>
                                     )}
                                 </div>
+                                <div className="flex items-center">
+                                    <input type="checkbox" required id="not-robot" name="not-robot" className="h-4 w-4 text-green-600 focus:ring-green-500 border-gray-300 rounded" />
+                                    <label htmlFor="not-robot" className="ml-2 block text-sm text-gray-700">
+                                        I&apos;m not a robot
+                                    </label>
+                                </div>
                                 <button
                                     type="submit"
                                     disabled={isSubmitting}
