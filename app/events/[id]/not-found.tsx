@@ -29,7 +29,7 @@ export default function EventNotFound() {
 
           {/* Description */}
           <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-            We couldn't find the event you're looking for. It may have been moved, deleted, or the link might be incorrect.
+            We couldn&apos;t find the event you&apos;re looking for. It may have been moved, deleted, or the link might be incorrect.
           </p>
 
           {/* Action Buttons */}
@@ -58,7 +58,7 @@ export default function EventNotFound() {
           {/* Additional Help */}
           <div className="mt-12 pt-8 border-t border-gray-200">
             <p className="text-sm text-gray-500 mb-4">
-              Need help finding what you're looking for?
+              Need help finding what you&apos;re looking for?
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center text-sm">
               <Link href="/contact" className="text-green-600 hover:text-green-700 transition-colors">
