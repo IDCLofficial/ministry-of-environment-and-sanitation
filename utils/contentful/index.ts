@@ -249,14 +249,15 @@ class ContentfulService {
     }
   }
   
-  async getProjectsByMinistryId(id: string): Promise<Project[] | null> {
+  async getProjectsByMinistryId(id: string, page: number = 1): Promise<Project[] | null> {
     try {
       const response = await client.getEntries({
         content_type: 'projects',
         "fields.ministry.sys.id[exists]": true,
         'fields.ministry.sys.id': id,
         include: 1,
-
+        skip: (page - 1) * 10,
+        limit: 10,
       });
 
       return (response.items as unknown as Project[]) || null;
@@ -265,6 +266,38 @@ class ContentfulService {
       return null;
     }
   }
+
+  async getProjectsCountByMinistryId(id: string): Promise<number> {
+    try {
+      const response = await client.getEntries({
+        content_type: 'projects',
+        "fields.ministry.sys.id[exists]": true,
+        'fields.ministry.sys.id': id,
+        select: ['sys.id'],
+      });
+  
+      return response.total; // total count from Contentful
+    } catch (error) {
+      console.error('Error fetching projects count by ministry id:', error);
+      return 0;
+    }
+  }
+
+  async getProjectById(id: string) {
+    try {
+      const response = await client.getEntries({
+        content_type: 'projects',
+        'sys.id': id,
+        include: 2,
+        limit: 1,
+      });
+
+      return response.items[0] as unknown as Project || null;
+    } catch (error) {
+      console.error('Error fetching project by id:', error);
+      return null;
+    }
+  } 
 
   // Fetch all categories
   async getCategories(): Promise<Category[]> {

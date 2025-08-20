@@ -6,9 +6,10 @@ import { ANIMATION_PRESETS } from "../utils/constants/animations";
 
 interface EmptyStateProps {
     type?: "no-content" | "page-no-content";
+    btnLink?: string;
 }
 
-export default function EmptyState({ type = "no-content" }: EmptyStateProps) {
+export default function EmptyState({ type = "no-content", btnLink = "/media" }: EmptyStateProps) {
     const config = {
         "no-content": {
             title: "No Media Available",
@@ -17,7 +18,7 @@ export default function EmptyState({ type = "no-content" }: EmptyStateProps) {
             icon: <FaImages className="text-green-600" size={32} />,
             bg: "bg-green-100",
             btnText: "Return to Homepage",
-            btnLink: "/",
+            btnLink,
         },
         "page-no-content": {
             title: "No Content on This Page",
@@ -26,11 +27,11 @@ export default function EmptyState({ type = "no-content" }: EmptyStateProps) {
             icon: <MdOutlineFindInPage className="text-green-600" size={32} />,
             bg: "bg-green-100",
             btnText: "Go to First Page",
-            btnLink: "/media", // adjust route if your media listing page differs
+            btnLink,
         },
     };
 
-    const { title, description, icon, bg, btnText, btnLink } = config[type];
+    const { title, description, icon, bg, btnText, btnLink: btnLinkConfig } = config[type];
 
     return (
         <div>
@@ -44,7 +45,7 @@ export default function EmptyState({ type = "no-content" }: EmptyStateProps) {
                     <h3 className="text-xl font-bold text-gray-900 mb-2">{title}</h3>
                     <p className="text-gray-600 mb-6">{description}</p>
                     <Link
-                        href={btnLink}
+                        href={btnLinkConfig}
                         className="inline-block px-6 py-3 bg-green-500 text-white font-medium rounded-md hover:bg-green-600 transition-colors duration-300"
                     >
                         {btnText}

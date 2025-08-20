@@ -18,7 +18,7 @@ export type PaginationProps = {
   boundaryCount?: number; // pages at start/end
   showFirstLast?: boolean;
   showPrevNext?: boolean;
-  type: "news" | "events" | "media";
+  type: "news" | "events" | "media" | "projects";
   disabled?: boolean;
   className?: string;
   pageItemClassName?: string;
@@ -179,6 +179,13 @@ export const Pagination: React.FC<PaginationProps> = ({
         router.push(`/media?page=${page}`);
       } else {
         router.push(`/media?category=${category}&page=${page}`);
+      }
+    }
+    if (type === "projects") {
+      if (!category) {
+        router.push(`/projects?page=${page}`);
+      } else {
+        router.push(`/projects?category=${category}&page=${page}`);
       }
     }
   }, [type, category])
