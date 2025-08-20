@@ -151,13 +151,15 @@ class ContentfulService {
     }
   }
 
-  async getMediaByMinistryId(id: string): Promise<Media | null> {
+  async getMediaByMinistryId(id: string, page: number = 1): Promise<Media[] | null> {
     try {
       const response = await client.getEntries({
         content_type: 'media',
         "fields.ministry.sys.id[exists]": true,
         'fields.ministry.sys.id': id,
         include: 1,
+        skip: (page - 1) * 10,
+        limit: 10,
 
       });
 
@@ -172,7 +174,7 @@ class ContentfulService {
           i
         }
       })
-      return response.items as unknown as Media || null;
+      return response.items as unknown as Media[] || null;
     } catch (error) {
       console.error('Error fetching media by ministry id:', error);
       return null;
@@ -194,6 +196,22 @@ class ContentfulService {
     } catch (error) {
       console.error('Error fetching events by ministry id:', error);
       return null;
+    }
+  }
+
+  async getMediaCountByMinistryId(id: string): Promise<number> {
+    try {
+      const response = await client.getEntries({
+        content_type: 'media',
+        "fields.ministry.sys.id[exists]": true,
+        'fields.ministry.sys.id': id,
+        select: ['sys.id'],
+      });
+  
+      return response.total; // total count from Contentful
+    } catch (error) {
+      console.error('Error fetching media count by ministry id:', error);
+      return 0;
     }
   }
 

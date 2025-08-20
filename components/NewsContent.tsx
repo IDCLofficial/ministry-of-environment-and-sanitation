@@ -7,6 +7,7 @@ import { contentfulService } from "@/utils/contentful";
 import { Category, NewsPost } from "@/utils/contentful/types";
 import { getRelativeTime } from "@/utils";
 import Pagination from "./Pagination";
+import { MdOutlineFindInPage } from "react-icons/md";
 
 interface DisplayNews {
     id: string;
@@ -93,19 +94,14 @@ const NewsContent: React.FC<{ category: string, page: string }> = async ({ categ
         }
     };
 
-    // Fetch media data (for debugging/future use)
-    // const fetchMediaData = async () => {
-    //     try {
-    //         const mediaData = await contentfulService.getMediaByMinistryId("1CbXE0xisRTATe9srPctj2");
-    //         console.log({mediaData});
-    //     } catch (error) {
-    //         console.error('Error fetching media data:', error);
-    //     }
-    // };
 
     const categories = await fetchCategoriesData();
     const news = await fetchNewsData(category);
     const newsCount = await fetchNewsCount(category);
+
+    if (newsCount === 0) {
+        return <EmptyState type="no-content" />;
+    }
 
     return (
         <div className="flex flex-col lg:flex-row gap-8">
@@ -113,18 +109,6 @@ const NewsContent: React.FC<{ category: string, page: string }> = async ({ categ
             <div className="lg:w-1/4">
                 <AnimatedEntrance {...ANIMATION_PRESETS.CARD_FADE_UP} delay={STAGGER_DELAYS.FAST[0]}>
                     <div className="bg-white rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow duration-300">
-                        {/* <div className="mb-6">
-                            <div className="flex items-center mb-4">
-                                <svg className="w-5 h-5 text-gray-400 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                                </svg>
-                                <input
-                                    type="text"
-                                    placeholder="Search"
-                                    className="flex-1 border-0 focus:ring-0 text-sm"
-                                />
-                            </div>
-                        </div> */}
 
                         <div>
                             <h3 className="text-sm font-semibold text-gray-900 uppercase tracking-wide mb-4">CATEGORIES</h3>
@@ -156,7 +140,7 @@ const NewsContent: React.FC<{ category: string, page: string }> = async ({ categ
             </div>
 
             <div className="lg:w-3/4">
-                {news && news.length === 0 && <EmptyState />}
+                {news && news.length === 0 && <EmptyState type="page-no-content" />}
                 {news && news.length > 0 && <div className="grid grid-cols-[repeat(auto-fill,minmax(250px,1fr))] gap-3">
                     {news.map((article, index) => (
                         <AnimatedEntrance
@@ -213,27 +197,57 @@ const NewsContent: React.FC<{ category: string, page: string }> = async ({ categ
 };
 
 
-const EmptyState: React.FC = () => {
+interface EmptyStateProps {
+    type?: "no-content" | "page-no-content";
+  }
+  
+  const EmptyState: React.FC<EmptyStateProps> = ({ type = "no-content" }) => {
+    const config = {
+      "no-content": {
+        title: "No News Available",
+        description:
+          "There are currently no news articles available. Updates and announcements will appear here as they become available.",
+        icon: <FaNewspaper className="text-green-600" size={32} />,
+        bg: "bg-green-100",
+        btnText: "View All News",
+        btnLink: "/news",
+        btnColor: "bg-green-600 hover:bg-green-700",
+      },
+      "page-no-content": {
+        title: "No News on This Page",
+        description:
+          "This page has no news articles to display. Try going back or browsing other pages.",
+        icon: <MdOutlineFindInPage className="text-blue-600" size={32} />,
+        bg: "bg-blue-100",
+        btnText: "Back to News",
+        btnLink: "/news",
+        btnColor: "bg-blue-600 hover:bg-blue-700",
+      },
+    };
+  
+    const { title, description, icon, bg, btnText, btnLink, btnColor } = config[type];
+  
     return (
-        <div className="">
-            <AnimatedEntrance {...ANIMATION_PRESETS.CARD_FADE_UP}>
-                <div className="bg-white rounded-lg p-8 text-center shadow-sm">
-                    <div className="flex justify-center mb-4">
-                        <div className="w-20 h-20 rounded-full bg-green-100 flex items-center justify-center">
-                            <FaNewspaper className="text-green-600" size={32} />
-                        </div>
-                    </div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">No News Available</h3>
-                    <p className="text-gray-600 mb-6">
-                        There are currently no news articles available for this section. New updates and announcements will appear here as they become available.
-                    </p>
-                    <Link href="/news" className="inline-block px-6 py-3 bg-green-600 text-white font-medium rounded-md hover:bg-green-700 transition-colors duration-300">
-                        View All News
-                    </Link>
-                </div>
-            </AnimatedEntrance>
-        </div>
+      <div>
+        <AnimatedEntrance {...ANIMATION_PRESETS.CARD_FADE_UP}>
+          <div className="bg-white rounded-lg p-8 text-center shadow-sm">
+            <div className="flex justify-center mb-4">
+              <div className={`w-20 h-20 rounded-full ${bg} flex items-center justify-center`}>
+                {icon}
+              </div>
+            </div>
+            <h3 className="text-xl font-bold text-gray-900 mb-2">{title}</h3>
+            <p className="text-gray-600 mb-6">{description}</p>
+            <Link
+              href={btnLink}
+              className={`inline-block px-6 py-3 text-white font-medium rounded-md transition-colors duration-300 ${btnColor}`}
+            >
+              {btnText}
+            </Link>
+          </div>
+        </AnimatedEntrance>
+      </div>
     );
-};
+  };
 
 export default NewsContent;

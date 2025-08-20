@@ -47,9 +47,6 @@ const fetchEvents = async (page: number = 1): Promise<TransformedEvent[]> => {
       return [];
     }
 
-    // simulate a 5 second delay
-    await new Promise((resolve) => setTimeout(resolve, 5000));
-
     const eventsData = await contentfulService.getEventsByMinistryId(ministryId, page);
     
     if (!eventsData || eventsData.length === 0) {
