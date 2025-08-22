@@ -59,8 +59,6 @@ const NewsContent: React.FC<{ category: string, page: string }> = async ({ categ
                 newsData = await contentfulService.getBlogsByCategoryId(categoryId, ministryId, parseInt(page));
             }
 
-            console.log(newsData[0]);
-
             const transformedNews = transformNewsData(newsData);
             return transformedNews;
         } catch (error) {
@@ -199,55 +197,55 @@ const NewsContent: React.FC<{ category: string, page: string }> = async ({ categ
 
 interface EmptyStateProps {
     type?: "no-content" | "page-no-content";
-  }
-  
-  const EmptyState: React.FC<EmptyStateProps> = ({ type = "no-content" }) => {
+}
+
+const EmptyState: React.FC<EmptyStateProps> = ({ type = "no-content" }) => {
     const config = {
-      "no-content": {
-        title: "No News Available",
-        description:
-          "There are currently no news articles available. Updates and announcements will appear here as they become available.",
-        icon: <FaNewspaper className="text-green-600" size={32} />,
-        bg: "bg-green-100",
-        btnText: "View All News",
-        btnLink: "/news",
-        btnColor: "bg-green-600 hover:bg-green-700",
-      },
-      "page-no-content": {
-        title: "No News on This Page",
-        description:
-          "This page has no news articles to display. Try going back or browsing other pages.",
-        icon: <MdOutlineFindInPage className="text-blue-600" size={32} />,
-        bg: "bg-blue-100",
-        btnText: "Back to News",
-        btnLink: "/news",
-        btnColor: "bg-blue-600 hover:bg-blue-700",
-      },
+        "no-content": {
+            title: "No News Available",
+            description:
+                "There are currently no news articles available. Updates and announcements will appear here as they become available.",
+            icon: <FaNewspaper className="text-green-600" size={32} />,
+            bg: "bg-green-100",
+            btnText: "View All News",
+            btnLink: "/news",
+            btnColor: "bg-green-600 hover:bg-green-700",
+        },
+        "page-no-content": {
+            title: "No News on This Page",
+            description:
+                "This page has no news articles to display. Try going back or browsing other pages.",
+            icon: <MdOutlineFindInPage className="text-blue-600" size={32} />,
+            bg: "bg-blue-100",
+            btnText: "Back to News",
+            btnLink: "/news",
+            btnColor: "bg-blue-600 hover:bg-blue-700",
+        },
     };
-  
+
     const { title, description, icon, bg, btnText, btnLink, btnColor } = config[type];
-  
+
     return (
-      <div>
-        <AnimatedEntrance {...ANIMATION_PRESETS.CARD_FADE_UP}>
-          <div className="bg-white rounded-lg p-8 text-center shadow-sm">
-            <div className="flex justify-center mb-4">
-              <div className={`w-20 h-20 rounded-full ${bg} flex items-center justify-center`}>
-                {icon}
-              </div>
-            </div>
-            <h3 className="text-xl font-bold text-gray-900 mb-2">{title}</h3>
-            <p className="text-gray-600 mb-6">{description}</p>
-            <Link
-              href={btnLink}
-              className={`inline-block px-6 py-3 text-white font-medium rounded-md transition-colors duration-300 ${btnColor}`}
-            >
-              {btnText}
-            </Link>
-          </div>
-        </AnimatedEntrance>
-      </div>
+        <div>
+            <AnimatedEntrance {...ANIMATION_PRESETS.CARD_FADE_UP}>
+                <div className="bg-white rounded-lg p-8 text-center shadow-sm">
+                    <div className="flex justify-center mb-4">
+                        <div className={`w-20 h-20 rounded-full ${bg} flex items-center justify-center`}>
+                            {icon}
+                        </div>
+                    </div>
+                    <h3 className="text-xl font-bold text-gray-900 mb-2">{title}</h3>
+                    <p className="text-gray-600 mb-6">{description}</p>
+                    <Link
+                        href={btnLink}
+                        className={`inline-block px-6 py-3 text-white font-medium rounded-md transition-colors duration-300 ${btnColor}`}
+                    >
+                        {btnText}
+                    </Link>
+                </div>
+            </AnimatedEntrance>
+        </div>
     );
-  };
+};
 
 export default NewsContent;

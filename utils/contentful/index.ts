@@ -101,6 +101,27 @@ class ContentfulService {
     }
   }
 
+  // Fetch blog titles for suggestions
+  async getBlogTitlesAndSlugsByMinistryId(ministryId: string): Promise<{ title: string; slug: string }[]> {
+    try {
+      const response = await client.getEntries({
+        content_type: 'blogs',
+        "fields.ministry.sys.id[exists]": true,
+        'fields.ministry.sys.id': ministryId,
+        select: ['fields.title', 'fields.slug'],
+      });
+
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      return response.items.map((item: any) => ({
+        title: item.fields.title,
+        slug: item.fields.slug
+      }));
+    } catch (error) {
+      console.error('Error fetching blog titles:', error);
+      return [];
+    }
+  }
+
   // Fetch a single blog post by slug
   async getBlogBySlug(slug: string): Promise<NewsPost | null> {
     try {
