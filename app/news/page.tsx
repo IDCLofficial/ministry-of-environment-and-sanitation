@@ -3,6 +3,8 @@ import AnimatedEntrance from "../../components/AnimatedEntrance";
 import { HERO_CONFIGS } from "../../utils/constants/heroSections";
 import { ANIMATION_PRESETS } from "../../utils/constants/animations";
 import NewsContent from "@/components/NewsContent";
+import SearchSection from "@/components/SearchSection";
+import SearchLoadingSkeleton from "@/components/SearchLoadingSkeleton";
 import { Suspense } from "react";
 
 interface PageProps {
@@ -27,6 +29,9 @@ export default async function News({searchParams}: PageProps) {
             {/* Hero Section */}
             <HeroSection {...HERO_CONFIGS.NEWS} />
 
+            <Suspense fallback={<SearchLoadingSkeleton />}>
+                <SearchSection />
+            </Suspense>
             {/* Main Content Section */}
             <AnimatedEntrance {...ANIMATION_PRESETS.CARD_FADE_UP}>
                 <section className="py-16 bg-gray-50">
@@ -83,3 +88,4 @@ const LoadingState: React.FC = () => {
         </div>
     );
 };
+

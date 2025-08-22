@@ -44,5 +44,5 @@ export const NAV_LINKS: NavLink[] = [
 
 export const CONTACT_INFO = {
   address: "Ministry of Environment and Sanitation, State Secretariat, Owerri, Imo State",
-  email: "commissioner.ind.solid.min@gmail.com"
+  email: "info@environment.im.gov"
 };

@@ -13,17 +13,20 @@ export default function Contact() {
         email: "",
         subject: "",
         message: "",
+        notRobot: false,
     });
 
     const [errors, setErrors] = useState<
-        Partial<Record<"name" | "company" | "phone" | "email" | "subject" | "message", string>>
+        Partial<Record<"name" | "company" | "phone" | "email" | "subject" | "message" | "notRobot", string>>
     >({});
 
     const [isSubmitting, setIsSubmitting] = useState(false);
 
     const handleChange = useCallback(
         (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-            const { name, value } = e.target;
+            const { name, type } = e.target;
+            const value = type === 'checkbox' ? (e.target as HTMLInputElement).checked : e.target.value;
+            
             setFormValues((prev) => ({ ...prev, [name]: value }));
             if (errors[name as keyof typeof errors]) {
                 setErrors((prev) => {
@@ -45,6 +48,7 @@ export default function Contact() {
         if (!values.subject.trim()) nextErrors.subject = "Subject is required";
         if (!values.message.trim() || values.message.trim().length < 10)
             nextErrors.message = "Message should be at least 10 characters";
+        if (!values.notRobot) nextErrors.notRobot = "Please confirm you are not a robot";
         return nextErrors;
     }, []);
 
@@ -68,6 +72,7 @@ export default function Contact() {
                     email: "",
                     subject: "",
                     message: "",
+                    notRobot: false,
                 });
                 setErrors({});
             } finally {
@@ -138,7 +143,7 @@ export default function Contact() {
                                     </div>
                                     <h3 className="text-xl font-bold text-gray-900 mb-2">Socials</h3>
                                     <div className="flex space-x-3">
-                                        <a href="https://www.facebook.com/official.imsmes" className="w-8 h-8 bg-green-500 rounded flex items-center justify-center">
+                                        <a href="#" className="w-8 h-8 bg-green-500 rounded flex items-center justify-center">
                                             <FaFacebook className="w-4 h-4 text-white"/>
                                         </a>
                                     </div>
@@ -155,7 +160,7 @@ export default function Contact() {
                                             </svg>
                                         </div>
                                         <h3 className="text-xl font-bold text-gray-900 mb-2">Email support</h3>
-                                        <a href="mailto:commissioner.ind.solid.min@gmail.com" className="text-blue-600 hover:text-blue-800 transition-colors duration-300">commissioner.ind.solid.min@gmail.com</a>
+                                        <a href="mailto:info@environment.im.gov" className="text-blue-600 hover:text-blue-800 transition-colors duration-300">info@environment.im.gov</a>
                                     </div>
                                 </AnimatedEntrance>
                             </div>
@@ -295,12 +300,23 @@ export default function Contact() {
                                         <p id="message-error" className="mt-2 text-sm text-red-600">{errors.message}</p>
                                     )}
                                 </div>
+                                <div>
                                 <div className="flex items-center">
-                                    <input type="checkbox" required id="not-robot" name="not-robot" className="h-4 w-4 text-green-600 focus:ring-green-500 border-gray-300 rounded" />
+                                    <input
+                                        type="checkbox"
+                                        required
+                                        id="not-robot"
+                                        name="notRobot"
+                                        className="h-4 w-4 text-green-600 focus:ring-green-500 border-gray-300 rounded"
+                                        onChange={handleChange}
+                                        checked={formValues.notRobot}
+                                    />
                                     <label htmlFor="not-robot" className="ml-2 block text-sm text-gray-700">
                                         I&apos;m not a robot
                                     </label>
                                 </div>
+                                {errors.notRobot && <p id="not-robot-error" className="mt-2 text-sm text-red-600">{errors.notRobot}</p>}
+                            </div>
                                 <button
                                     type="submit"
                                     disabled={isSubmitting}
