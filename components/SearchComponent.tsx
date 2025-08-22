@@ -184,7 +184,7 @@ export const SearchComponent: React.FC<SearchComponentProps> = ({
                     
                     {query && filteredSuggestions.length === 0 && (
                         <div className="px-4 py-3 text-sm text-gray-500 text-center">
-                            No results found for "{query}"
+                            No results found for &ldquo;{query}&rdquo;
                         </div>
                     )}
                 </div>
