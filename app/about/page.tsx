@@ -127,9 +127,6 @@ export default function About() {
                                 His tenure has seen significant progress in waste management, climate action, and community engagement
                                 programs across Imo State.
                             </p>
-                            <button className="bg-green-500 hover:bg-green-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg text-sm sm:text-base font-semibold transition-colors">
-                                Read Full Bio
-                            </button>
                         </div>
                         <div className="order-1 lg:order-2 aspect-[3/4]">
                             <Image
