@@ -3,6 +3,14 @@ import HeroSection from "../../components/HeroSection";
 import AnimatedEntrance from "../../components/AnimatedEntrance";
 import { HERO_CONFIGS } from "../../utils/constants/heroSections";
 import { ANIMATION_PRESETS, STAGGER_DELAYS } from "../../utils/constants/animations";
+import { pageMetadata } from "@/lib/seo";
+
+export const metadata = pageMetadata({
+  title: "About Us",
+  description: "About the Ministry of Environment & Sanitation of the Imo State Government: who we are and what we do.",
+  path: "/about",
+});
+
 
 export default function About() {
     return (

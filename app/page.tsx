@@ -7,6 +7,14 @@ import { HERO_CONFIGS } from "../utils/constants/heroSections";
 import { ANIMATION_PRESETS, STAGGER_DELAYS } from "../utils/constants/animations";
 import { FaLeaf, FaRecycle, FaCloudSun, FaBroom } from "react-icons/fa6";
 import Link from "next/link";
+import { pageMetadata } from "@/lib/seo";
+
+export const metadata = pageMetadata({
+  title: { absolute: "Ministry of Environment & Sanitation | Imo State Government" },
+  description: "Official website of the Ministry of Environment & Sanitation, Imo State Government: services, departments, projects, news and events.",
+  path: "/",
+});
+
 
 export default function Home() {
   return (

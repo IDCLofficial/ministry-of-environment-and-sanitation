@@ -3,6 +3,14 @@ import { HERO_CONFIGS } from "../../utils/constants/heroSections";
 import AnimatedEntrance from "../../components/AnimatedEntrance";
 import { ANIMATION_PRESETS, STAGGER_DELAYS } from "../../utils/constants/animations";
 import { GiCloudRing, GiFlood, GiGasMask, GiHut, GiLeafSwirl, GiTrashCan } from "react-icons/gi";
+import { pageMetadata } from "@/lib/seo";
+
+export const metadata = pageMetadata({
+  title: "Services",
+  description: "Services offered by the Ministry of Environment & Sanitation of the Imo State Government.",
+  path: "/services",
+});
+
 
 export default function Services() {
     return (
