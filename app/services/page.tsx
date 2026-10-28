@@ -6,8 +6,8 @@ import { GiCloudRing, GiFlood, GiGasMask, GiHut, GiLeafSwirl, GiTrashCan } from 
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata = pageMetadata({
-  title: "Services",
-  description: "Services offered by the Ministry of Environment & Sanitation of the Imo State Government.",
+  title: "Waste Management, Erosion Control and Sanitation",
+  description: "Environmental protection, waste management, flood and erosion control, climate change response, pollution control and sanitation services in Imo State.",
   path: "/services",
 });
 

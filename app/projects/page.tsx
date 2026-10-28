@@ -17,7 +17,7 @@ import { pageMetadata } from "@/lib/seo";
 
 export const metadata = pageMetadata({
   title: "Projects",
-  description: "Projects and programmes of the Ministry of Environment & Sanitation, Imo State Government.",
+  description: "Projects and programmes of the Ministry of Environment and Sanitation, Imo State Government.",
   path: "/projects",
 });
 

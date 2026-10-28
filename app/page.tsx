@@ -10,8 +10,8 @@ import Link from "next/link";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata = pageMetadata({
-  title: { absolute: "Ministry of Environment & Sanitation | Imo State Government" },
-  description: "Official website of the Ministry of Environment & Sanitation, Imo State Government: services, departments, projects, news and events.",
+  title: { absolute: "Imo State Ministry of Environment and Sanitation" },
+  description: "Waste management, flood and erosion control, climate action, pollution control and urban and rural sanitation across Imo State.",
   path: "/",
 });
 
